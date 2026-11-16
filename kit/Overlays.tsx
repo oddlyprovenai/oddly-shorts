@@ -46,8 +46,10 @@ export const Overlays: React.FC<{ items: Overlay[]; accent: string }> = ({ items
         if (o.kind === "end" && t >= o.from) {
           const u = ease((t - o.from) / 0.5);
           return (
-            <AbsoluteFill key={i} style={{ background: `rgba(14,17,22,${0.78 * u})`, alignItems: "center", justifyContent: "center", fontFamily: ROUND, color: "#fff" }}>
-              <div style={{ width: "84%", textAlign: "center", transform: `translateY(${(1 - u) * 40}px)`, opacity: u }}>
+            <AbsoluteFill key={i} style={{ alignItems: "center", fontFamily: ROUND, color: "#fff" }}>
+              {/* a panel in the upper half: the host stays visible (and bright) below it */}
+              <div style={{ position: "absolute", top: "13%", width: "84%", textAlign: "center", transform: `translateY(${(1 - u) * 40}px)`, opacity: u,
+                background: "rgba(14,17,22,0.88)", borderRadius: 40, padding: "40px 34px 46px", borderTop: `12px solid ${accent}` }}>
                 <div style={{ fontSize: 96, fontWeight: 700, color: accent, lineHeight: 1.05 }}>{o.title}</div>
                 {o.lines.map((l, k) => <div key={k} style={{ fontSize: 50, marginTop: 26, lineHeight: 1.2, opacity: ease((t - o.from - 0.3 - 0.25 * k) / 0.4) }}>{l}</div>)}
                 {o.handle && <div style={{ fontSize: 46, marginTop: 44, color: "#c9d1dc" }}>{o.handle}</div>}
