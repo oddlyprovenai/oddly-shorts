@@ -3,6 +3,6 @@ TITLE (60 chars max)
 Description: what it is, one honest number with context, who it is for. Link in bio.
 
 Sources: 
-AI-assisted animation: original characters, synthesized voice, music and sound effects. Made with oddly-shorts (open source).
+AI-assisted animation: original characters, synthesized voice, music and sound effects. Made with oddly-shorts (open source): https://github.com/oddlyprovenai/oddly-shorts
 
 #tag1 #tag2 #tag3
