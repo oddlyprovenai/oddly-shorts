@@ -1,0 +1,14 @@
+{
+  "name": "Otto",
+  "role": "AI engineer, host of Oddly Proven",
+  "skin": "#ecd0b6",
+  "hair": { "color": "#2a211c", "style": "tuft" },
+  "glasses": "round",
+  "top": { "color": "#D9A72E", "buttons": "#7a5a12", "shirt": "#f6f3ea", "collar": true },
+  "pants": "#3b3f52",
+  "shoes": "#4a3426",
+  "pin": { "kind": "cactus", "color": "#4f9a3c" },
+  "pocket": { "kind": "notebook", "color": "#e8473b" },
+  "build": "adult",
+  "seed": 3
+}

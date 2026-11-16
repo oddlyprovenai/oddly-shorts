@@ -1,0 +1,226 @@
+{
+ "total": 56.0,
+ "accent": "#88D445",
+ "cameo": "cactus",
+ "subStyle": "pop",
+ "segments": [
+  {
+   "from": 0.0,
+   "cam": "host"
+  },
+  {
+   "from": 4.55,
+   "cam": "wide"
+  },
+  {
+   "from": 6.7,
+   "cam": "over"
+  },
+  {
+   "from": 9.85,
+   "cam": "screen"
+  },
+  {
+   "from": 15.4,
+   "cam": "side"
+  },
+  {
+   "from": 18.0,
+   "cam": "host"
+  },
+  {
+   "from": 23.15,
+   "cam": "screen"
+  },
+  {
+   "from": 27.3,
+   "cam": "screen"
+  },
+  {
+   "from": 37.05,
+   "cam": "medium"
+  },
+  {
+   "from": 41.85,
+   "cam": "over"
+  },
+  {
+   "from": 46.15,
+   "cam": "host"
+  },
+  {
+   "from": 48.9,
+   "cam": "wide"
+  },
+  {
+   "from": 50.15,
+   "cam": "host"
+  }
+ ],
+ "expr": [
+  [
+   0,
+   "grin"
+  ],
+  [
+   6.7,
+   "smile"
+  ],
+  [
+   23.1,
+   "nervous"
+  ],
+  [
+   27.3,
+   "grin"
+  ],
+  [
+   37.0,
+   "smile"
+  ],
+  [
+   46.1,
+   "grin"
+  ],
+  [
+   48.9,
+   "smile"
+  ]
+ ],
+ "screens": [
+  {
+   "from": 0,
+   "to": 9.85,
+   "screen": "main",
+   "kind": "terminal",
+   "cps": 26,
+   "lines": [
+    "$ spike doctor",
+    "# checks what this machine can run",
+    "$ spike serve --open",
+    "# app at 127.0.0.1:8740"
+   ]
+  },
+  {
+   "from": 9.85,
+   "to": 15.4,
+   "screen": "main",
+   "kind": "mock",
+   "title": "13 specialists"
+  },
+  {
+   "from": 15.4,
+   "to": 23.15,
+   "screen": "side",
+   "kind": "terminal",
+   "cps": 30,
+   "lines": [
+    "# router test: 130 requests",
+    "# written blind, never used for tuning",
+    "# 116 sent to the right specialist"
+   ]
+  },
+  {
+   "from": 23.15,
+   "to": 27.3,
+   "screen": "main",
+   "kind": "terminal",
+   "cps": 34,
+   "lines": [
+    "# medicine adapter, round 1",
+    "# medicine  +31.9 pts",
+    "# general    -7.6 pts",
+    "# REJECTED by our own test"
+   ]
+  },
+  {
+   "from": 27.3,
+   "to": 37.05,
+   "screen": "main",
+   "kind": "bars",
+   "unit": "%",
+   "max": 80,
+   "items": [
+    {
+     "label": "base model",
+     "value": 31.9,
+     "color": "#8a8f99"
+    },
+    {
+     "label": "SPIKE medicine",
+     "value": 67.0,
+     "color": "#88D445"
+    }
+   ]
+  },
+  {
+   "from": 37.05,
+   "to": 46.15,
+   "screen": "side",
+   "kind": "terminal",
+   "cps": 28,
+   "lines": [
+    "$ spike bench --gpu-layers 0",
+    "# 16 GB x86, 4 cores, CPU only",
+    "# 6.2 tok/s at a 1K-token prompt"
+   ]
+  },
+  {
+   "from": 41.85,
+   "to": 46.15,
+   "screen": "main",
+   "kind": "mock",
+   "title": "allow / ask / deny"
+  },
+  {
+   "from": 46.15,
+   "to": 60,
+   "screen": "main",
+   "kind": "mock",
+   "title": "SPIKE"
+  }
+ ],
+ "overlays": [
+  {
+   "kind": "lower",
+   "from": 0.4,
+   "to": 4.3,
+   "title": "SPIKE",
+   "sub": "local AI on a 16 GB laptop"
+  },
+  {
+   "kind": "number",
+   "from": 18.3,
+   "to": 23.0,
+   "before": "116/130",
+   "after": "0.89",
+   "label": "router, blind test"
+  },
+  {
+   "kind": "number",
+   "from": 27.6,
+   "to": 36.8,
+   "before": "31.9%",
+   "after": "67.0%",
+   "label": "2,318 medical questions",
+   "note": "general knowledge: -0.62 pts"
+  },
+  {
+   "kind": "lower",
+   "from": 37.3,
+   "to": 41.6,
+   "title": "6.2 tok/s",
+   "sub": "16 GB laptop \u00b7 CPU only \u00b7 1K prompt"
+  },
+  {
+   "kind": "end",
+   "from": 52.6,
+   "title": "SPIKE",
+   "lines": [
+    "Open source \u00b7 runs on 16 GB",
+    "This video: made with our free skill oddly-shorts"
+   ],
+   "handle": "Link in @oddlyprovenai bio"
+  }
+ ]
+}

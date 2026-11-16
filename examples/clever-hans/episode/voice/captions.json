@@ -1,0 +1,744 @@
+[
+ {
+  "words": [
+   "A",
+   "horse",
+   "in"
+  ],
+  "key": -1,
+  "start": -0.04,
+  "end": 0.52
+ },
+ {
+  "words": [
+   "Germany",
+   "could",
+   "add"
+  ],
+  "key": -1,
+  "start": 0.52,
+  "end": 1.46
+ },
+ {
+  "words": [
+   "subtract",
+   "and",
+   "tell"
+  ],
+  "key": -1,
+  "start": 1.46,
+  "end": 2.26
+ },
+ {
+  "words": [
+   "the",
+   "time."
+  ],
+  "key": 1,
+  "start": 2.26,
+  "end": 2.98
+ },
+ {
+  "words": [
+   "Or",
+   "so",
+   "everyone"
+  ],
+  "key": -1,
+  "start": 2.98,
+  "end": 3.5
+ },
+ {
+  "words": [
+   "thought."
+  ],
+  "key": -1,
+  "start": 3.5,
+  "end": 4.27
+ },
+ {
+  "words": [
+   "Germany"
+  ],
+  "key": -1,
+  "start": 4.3,
+  "end": 4.58
+ },
+ {
+  "words": [
+   "the",
+   "early",
+   "1900s."
+  ],
+  "key": 2,
+  "start": 4.58,
+  "end": 6.34
+ },
+ {
+  "words": [
+   "His",
+   "name",
+   "was"
+  ],
+  "key": -1,
+  "start": 6.34,
+  "end": 6.9
+ },
+ {
+  "words": [
+   "Clever",
+   "Hans."
+  ],
+  "key": 1,
+  "start": 6.9,
+  "end": 7.83
+ },
+ {
+  "words": [
+   "His",
+   "owner"
+  ],
+  "key": -1,
+  "start": 8.0,
+  "end": 8.52
+ },
+ {
+  "words": [
+   "a",
+   "maths",
+   "teacher"
+  ],
+  "key": -1,
+  "start": 8.52,
+  "end": 9.4
+ },
+ {
+  "words": [
+   "asked",
+   "the",
+   "questions"
+  ],
+  "key": -1,
+  "start": 9.4,
+  "end": 10.26
+ },
+ {
+  "words": [
+   "and",
+   "Hans",
+   "tapped"
+  ],
+  "key": 2,
+  "start": 10.26,
+  "end": 10.9
+ },
+ {
+  "words": [
+   "the",
+   "answers",
+   "with"
+  ],
+  "key": -1,
+  "start": 10.9,
+  "end": 11.56
+ },
+ {
+  "words": [
+   "his",
+   "hoof."
+  ],
+  "key": -1,
+  "start": 11.56,
+  "end": 12.21
+ },
+ {
+  "words": [
+   "Fractions."
+  ],
+  "key": -1,
+  "start": 12.34,
+  "end": 12.97
+ },
+ {
+  "words": [
+   "Dates."
+  ],
+  "key": -1,
+  "start": 13.08,
+  "end": 13.53
+ },
+ {
+  "words": [
+   "The",
+   "calendar."
+  ],
+  "key": 1,
+  "start": 13.66,
+  "end": 14.39
+ },
+ {
+  "words": [
+   "If",
+   "the",
+   "eighth"
+  ],
+  "key": -1,
+  "start": 14.54,
+  "end": 15.0
+ },
+ {
+  "words": [
+   "is",
+   "a",
+   "Tuesday"
+  ],
+  "key": -1,
+  "start": 15.0,
+  "end": 15.81
+ },
+ {
+  "words": [
+   "what",
+   "date",
+   "is"
+  ],
+  "key": -1,
+  "start": 15.9,
+  "end": 16.4
+ },
+ {
+  "words": [
+   "Friday?"
+  ],
+  "key": -1,
+  "start": 16.4,
+  "end": 16.97
+ },
+ {
+  "words": [
+   "Hans",
+   "tapped",
+   "eleven"
+  ],
+  "key": 2,
+  "start": 17.12,
+  "end": 18.08
+ },
+ {
+  "words": [
+   "times."
+  ],
+  "key": -1,
+  "start": 18.08,
+  "end": 18.85
+ },
+ {
+  "words": [
+   "Correct."
+  ],
+  "key": -1,
+  "start": 18.86,
+  "end": 19.39
+ },
+ {
+  "words": [
+   "Crowds",
+   "came",
+   "to"
+  ],
+  "key": -1,
+  "start": 19.46,
+  "end": 20.22
+ },
+ {
+  "words": [
+   "watch"
+  ],
+  "key": -1,
+  "start": 20.22,
+  "end": 20.68
+ },
+ {
+  "words": [
+   "and",
+   "he",
+   "never"
+  ],
+  "key": -1,
+  "start": 20.68,
+  "end": 21.06
+ },
+ {
+  "words": [
+   "charged",
+   "a",
+   "penny."
+  ],
+  "key": -1,
+  "start": 21.06,
+  "end": 22.17
+ },
+ {
+  "words": [
+   "A",
+   "commission",
+   "of"
+  ],
+  "key": -1,
+  "start": 22.24,
+  "end": 22.84
+ },
+ {
+  "words": [
+   "thirteen",
+   "experts",
+   "came"
+  ],
+  "key": 0,
+  "start": 22.84,
+  "end": 23.98
+ },
+ {
+  "words": [
+   "to",
+   "check"
+  ],
+  "key": -1,
+  "start": 23.98,
+  "end": 24.5
+ },
+ {
+  "words": [
+   "and",
+   "found",
+   "no"
+  ],
+  "key": -1,
+  "start": 24.5,
+  "end": 25.02
+ },
+ {
+  "words": [
+   "cheating."
+  ],
+  "key": -1,
+  "start": 25.02,
+  "end": 25.67
+ },
+ {
+  "words": [
+   "Then",
+   "a",
+   "psychologist"
+  ],
+  "key": -1,
+  "start": 25.8,
+  "end": 26.95
+ },
+ {
+  "words": [
+   "Oskar",
+   "Pfungst"
+  ],
+  "key": 1,
+  "start": 26.96,
+  "end": 27.88
+ },
+ {
+  "words": [
+   "tried",
+   "one",
+   "thing."
+  ],
+  "key": -1,
+  "start": 27.88,
+  "end": 28.9
+ },
+ {
+  "words": [
+   "He",
+   "asked",
+   "questions"
+  ],
+  "key": -1,
+  "start": 28.9,
+  "end": 29.62
+ },
+ {
+  "words": [
+   "he",
+   "didn't",
+   "know"
+  ],
+  "key": -1,
+  "start": 29.62,
+  "end": 30.22
+ },
+ {
+  "words": [
+   "the",
+   "answer",
+   "to."
+  ],
+  "key": -1,
+  "start": 30.22,
+  "end": 30.94
+ },
+ {
+  "words": [
+   "Hans",
+   "got",
+   "them"
+  ],
+  "key": -1,
+  "start": 30.94,
+  "end": 31.92
+ },
+ {
+  "words": [
+   "wrong."
+  ],
+  "key": 0,
+  "start": 31.92,
+  "end": 32.48
+ },
+ {
+  "words": [
+   "And",
+   "when",
+   "Hans"
+  ],
+  "key": -1,
+  "start": 32.48,
+  "end": 33.02
+ },
+ {
+  "words": [
+   "couldn't",
+   "see",
+   "the"
+  ],
+  "key": 1,
+  "start": 33.02,
+  "end": 33.54
+ },
+ {
+  "words": [
+   "person",
+   "asking"
+  ],
+  "key": -1,
+  "start": 33.54,
+  "end": 34.44
+ },
+ {
+  "words": [
+   "he",
+   "failed",
+   "too."
+  ],
+  "key": -1,
+  "start": 34.44,
+  "end": 35.45
+ },
+ {
+  "words": [
+   "Luckily"
+  ],
+  "key": -1,
+  "start": 35.52,
+  "end": 35.78
+ },
+ {
+  "words": [
+   "Hans",
+   "wasn't",
+   "lying."
+  ],
+  "key": -1,
+  "start": 35.78,
+  "end": 37.35
+ },
+ {
+  "words": [
+   "Unluckily"
+  ],
+  "key": -1,
+  "start": 37.4,
+  "end": 38.06
+ },
+ {
+  "words": [
+   "he",
+   "wasn't",
+   "counting"
+  ],
+  "key": -1,
+  "start": 38.06,
+  "end": 38.76
+ },
+ {
+  "words": [
+   "either."
+  ],
+  "key": -1,
+  "start": 38.76,
+  "end": 39.39
+ },
+ {
+  "words": [
+   "He",
+   "was",
+   "reading"
+  ],
+  "key": -1,
+  "start": 39.42,
+  "end": 39.86
+ },
+ {
+  "words": [
+   "faces"
+  ],
+  "key": 0,
+  "start": 39.86,
+  "end": 40.61
+ },
+ {
+  "words": [
+   "the",
+   "tiny",
+   "nod"
+  ],
+  "key": -1,
+  "start": 40.74,
+  "end": 41.6
+ },
+ {
+  "words": [
+   "when",
+   "he",
+   "reached"
+  ],
+  "key": -1,
+  "start": 41.6,
+  "end": 42.14
+ },
+ {
+  "words": [
+   "the",
+   "right",
+   "number."
+  ],
+  "key": -1,
+  "start": 42.14,
+  "end": 43.05
+ },
+ {
+  "words": [
+   "It's",
+   "like",
+   "a"
+  ],
+  "key": -1,
+  "start": 43.08,
+  "end": 43.48
+ },
+ {
+  "words": [
+   "quiz",
+   "where",
+   "the"
+  ],
+  "key": -1,
+  "start": 43.48,
+  "end": 44.14
+ },
+ {
+  "words": [
+   "host",
+   "smiles",
+   "just"
+  ],
+  "key": 1,
+  "start": 44.14,
+  "end": 45.26
+ },
+ {
+  "words": [
+   "before",
+   "your",
+   "answer."
+  ],
+  "key": -1,
+  "start": 45.26,
+  "end": 46.39
+ },
+ {
+  "words": [
+   "That's",
+   "why",
+   "careful"
+  ],
+  "key": -1,
+  "start": 46.44,
+  "end": 47.2
+ },
+ {
+  "words": [
+   "tests",
+   "are",
+   "double-blind"
+  ],
+  "key": 2,
+  "start": 47.2,
+  "end": 48.38
+ },
+ {
+  "words": [
+   "today"
+  ],
+  "key": -1,
+  "start": 48.38,
+  "end": 49.01
+ },
+ {
+  "words": [
+   "nobody",
+   "in",
+   "the"
+  ],
+  "key": -1,
+  "start": 49.18,
+  "end": 49.88
+ },
+ {
+  "words": [
+   "room",
+   "knows",
+   "the"
+  ],
+  "key": -1,
+  "start": 49.88,
+  "end": 50.54
+ },
+ {
+  "words": [
+   "answer."
+  ],
+  "key": -1,
+  "start": 50.54,
+  "end": 51.17
+ },
+ {
+  "words": [
+   "And",
+   "Hans?"
+  ],
+  "key": -1,
+  "start": 51.24,
+  "end": 51.98
+ },
+ {
+  "words": [
+   "Still",
+   "clever."
+  ],
+  "key": -1,
+  "start": 51.98,
+  "end": 52.85
+ },
+ {
+  "words": [
+   "Just",
+   "not",
+   "at"
+  ],
+  "key": -1,
+  "start": 52.94,
+  "end": 53.44
+ },
+ {
+  "words": [
+   "maths."
+  ],
+  "key": 0,
+  "start": 53.44,
+  "end": 54.13
+ },
+ {
+  "words": [
+   "So",
+   "we",
+   "test"
+  ],
+  "key": -1,
+  "start": 54.2,
+  "end": 54.74
+ },
+ {
+  "words": [
+   "our",
+   "router",
+   "on"
+  ],
+  "key": -1,
+  "start": 54.74,
+  "end": 55.36
+ },
+ {
+  "words": [
+   "130",
+   "requests",
+   "it"
+  ],
+  "key": 0,
+  "start": 55.36,
+  "end": 57.0
+ },
+ {
+  "words": [
+   "has",
+   "never",
+   "seen"
+  ],
+  "key": -1,
+  "start": 57.0,
+  "end": 57.9
+ },
+ {
+  "words": [
+   "written",
+   "blind."
+  ],
+  "key": -1,
+  "start": 57.9,
+  "end": 58.73
+ },
+ {
+  "words": [
+   "It",
+   "got",
+   "116"
+  ],
+  "key": 2,
+  "start": 59.0,
+  "end": 60.16
+ },
+ {
+  "words": [
+   "right."
+  ],
+  "key": -1,
+  "start": 60.16,
+  "end": 60.8
+ },
+ {
+  "words": [
+   "Oddly",
+   "Proven."
+  ],
+  "key": -1,
+  "start": 60.8,
+  "end": 61.73
+ }
+]

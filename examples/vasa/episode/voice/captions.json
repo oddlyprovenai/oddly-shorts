@@ -1,0 +1,680 @@
+[
+ {
+  "words": [
+   "The",
+   "mightiest",
+   "warship"
+  ],
+  "key": -1,
+  "start": -0.04,
+  "end": 1.02
+ },
+ {
+  "words": [
+   "in",
+   "Sweden",
+   "sank"
+  ],
+  "key": 2,
+  "start": 1.02,
+  "end": 1.86
+ },
+ {
+  "words": [
+   "before",
+   "it",
+   "even"
+  ],
+  "key": -1,
+  "start": 1.86,
+  "end": 2.54
+ },
+ {
+  "words": [
+   "left",
+   "the",
+   "harbour."
+  ],
+  "key": -1,
+  "start": 2.54,
+  "end": 3.6
+ },
+ {
+  "words": [
+   "Stockholm"
+  ],
+  "key": -1,
+  "start": 3.6,
+  "end": 4.27
+ },
+ {
+  "words": [
+   "1628."
+  ],
+  "key": 0,
+  "start": 4.32,
+  "end": 5.5
+ },
+ {
+  "words": [
+   "The",
+   "king",
+   "wanted"
+  ],
+  "key": -1,
+  "start": 5.5,
+  "end": 6.04
+ },
+ {
+  "words": [
+   "the",
+   "Vasa",
+   "to"
+  ],
+  "key": 1,
+  "start": 6.04,
+  "end": 6.68
+ },
+ {
+  "words": [
+   "be",
+   "the",
+   "strongest"
+  ],
+  "key": -1,
+  "start": 6.68,
+  "end": 7.32
+ },
+ {
+  "words": [
+   "ship",
+   "afloat"
+  ],
+  "key": -1,
+  "start": 7.32,
+  "end": 8.2
+ },
+ {
+  "words": [
+   "so",
+   "he",
+   "ordered"
+  ],
+  "key": -1,
+  "start": 8.2,
+  "end": 8.7
+ },
+ {
+  "words": [
+   "seventy-two",
+   "heavy",
+   "guns."
+  ],
+  "key": 0,
+  "start": 8.7,
+  "end": 10.45
+ },
+ {
+  "words": [
+   "Lots",
+   "more."
+  ],
+  "key": -1,
+  "start": 10.56,
+  "end": 11.45
+ },
+ {
+  "words": [
+   "A",
+   "second",
+   "gun"
+  ],
+  "key": 1,
+  "start": 11.5,
+  "end": 12.18
+ },
+ {
+  "words": [
+   "deck",
+   "went",
+   "on"
+  ],
+  "key": -1,
+  "start": 12.18,
+  "end": 12.88
+ },
+ {
+  "words": [
+   "top."
+  ],
+  "key": -1,
+  "start": 12.88,
+  "end": 13.49
+ },
+ {
+  "words": [
+   "Before",
+   "she",
+   "sailed"
+  ],
+  "key": -1,
+  "start": 13.56,
+  "end": 14.4
+ },
+ {
+  "words": [
+   "they",
+   "tested",
+   "her"
+  ],
+  "key": -1,
+  "start": 14.4,
+  "end": 14.98
+ },
+ {
+  "words": [
+   "stability."
+  ],
+  "key": -1,
+  "start": 14.98,
+  "end": 15.67
+ },
+ {
+  "words": [
+   "Thirty",
+   "sailors",
+   "ran"
+  ],
+  "key": 0,
+  "start": 15.86,
+  "end": 16.88
+ },
+ {
+  "words": [
+   "from",
+   "side",
+   "to"
+  ],
+  "key": -1,
+  "start": 16.88,
+  "end": 17.64
+ },
+ {
+  "words": [
+   "side",
+   "across",
+   "the"
+  ],
+  "key": -1,
+  "start": 17.64,
+  "end": 18.44
+ },
+ {
+  "words": [
+   "deck."
+  ],
+  "key": -1,
+  "start": 18.44,
+  "end": 18.92
+ },
+ {
+  "words": [
+   "She",
+   "rolled",
+   "so"
+  ],
+  "key": -1,
+  "start": 18.92,
+  "end": 19.6
+ },
+ {
+  "words": [
+   "hard",
+   "the",
+   "admiral"
+  ],
+  "key": -1,
+  "start": 19.6,
+  "end": 20.48
+ },
+ {
+  "words": [
+   "stopped",
+   "the",
+   "test"
+  ],
+  "key": 0,
+  "start": 20.48,
+  "end": 21.28
+ },
+ {
+  "words": [
+   "after",
+   "three",
+   "runs."
+  ],
+  "key": -1,
+  "start": 21.28,
+  "end": 22.51
+ },
+ {
+  "words": [
+   "And",
+   "then",
+   "they"
+  ],
+  "key": -1,
+  "start": 22.58,
+  "end": 22.98
+ },
+ {
+  "words": [
+   "launched",
+   "her",
+   "anyway."
+  ],
+  "key": -1,
+  "start": 22.98,
+  "end": 24.01
+ },
+ {
+  "words": [
+   "About",
+   "1,300",
+   "metres"
+  ],
+  "key": 1,
+  "start": 24.22,
+  "end": 25.34
+ },
+ {
+  "words": [
+   "out"
+  ],
+  "key": -1,
+  "start": 25.34,
+  "end": 25.94
+ },
+ {
+  "words": [
+   "a",
+   "gust",
+   "tipped"
+  ],
+  "key": -1,
+  "start": 25.94,
+  "end": 26.62
+ },
+ {
+  "words": [
+   "her",
+   "over."
+  ],
+  "key": -1,
+  "start": 26.62,
+  "end": 27.33
+ },
+ {
+  "words": [
+   "Water",
+   "poured",
+   "in"
+  ],
+  "key": -1,
+  "start": 27.4,
+  "end": 28.22
+ },
+ {
+  "words": [
+   "through",
+   "the",
+   "open"
+  ],
+  "key": -1,
+  "start": 28.22,
+  "end": 28.84
+ },
+ {
+  "words": [
+   "gunports"
+  ],
+  "key": 0,
+  "start": 28.84,
+  "end": 29.65
+ },
+ {
+  "words": [
+   "and",
+   "down",
+   "she"
+  ],
+  "key": -1,
+  "start": 29.68,
+  "end": 30.22
+ },
+ {
+  "words": [
+   "went."
+  ],
+  "key": -1,
+  "start": 30.22,
+  "end": 30.75
+ },
+ {
+  "words": [
+   "Luckily"
+  ],
+  "key": -1,
+  "start": 30.78,
+  "end": 31.33
+ },
+ {
+  "words": [
+   "the",
+   "cold",
+   "Baltic"
+  ],
+  "key": -1,
+  "start": 31.5,
+  "end": 32.38
+ },
+ {
+  "words": [
+   "kept",
+   "her",
+   "safe."
+  ],
+  "key": 2,
+  "start": 32.38,
+  "end": 33.31
+ },
+ {
+  "words": [
+   "Unluckily"
+  ],
+  "key": -1,
+  "start": 33.54,
+  "end": 34.18
+ },
+ {
+  "words": [
+   "it",
+   "kept",
+   "her"
+  ],
+  "key": -1,
+  "start": 34.18,
+  "end": 34.6
+ },
+ {
+  "words": [
+   "for",
+   "333",
+   "years."
+  ],
+  "key": 1,
+  "start": 34.6,
+  "end": 36.71
+ },
+ {
+  "words": [
+   "It's",
+   "like",
+   "a"
+  ],
+  "key": -1,
+  "start": 36.82,
+  "end": 37.26
+ },
+ {
+  "words": [
+   "bookshelf",
+   "that",
+   "wobbles"
+  ],
+  "key": 0,
+  "start": 37.26,
+  "end": 38.28
+ },
+ {
+  "words": [
+   "in",
+   "front",
+   "of"
+  ],
+  "key": -1,
+  "start": 38.28,
+  "end": 38.72
+ },
+ {
+  "words": [
+   "everyone"
+  ],
+  "key": -1,
+  "start": 38.72,
+  "end": 39.12
+ },
+ {
+  "words": [
+   "and",
+   "you",
+   "still"
+  ],
+  "key": -1,
+  "start": 39.12,
+  "end": 39.62
+ },
+ {
+  "words": [
+   "fill",
+   "the",
+   "top"
+  ],
+  "key": -1,
+  "start": 39.62,
+  "end": 40.2
+ },
+ {
+  "words": [
+   "shelf."
+  ],
+  "key": -1,
+  "start": 40.2,
+  "end": 40.81
+ },
+ {
+  "words": [
+   "Today"
+  ],
+  "key": -1,
+  "start": 40.84,
+  "end": 41.35
+ },
+ {
+  "words": [
+   "a",
+   "failed",
+   "stability"
+  ],
+  "key": -1,
+  "start": 41.38,
+  "end": 42.24
+ },
+ {
+  "words": [
+   "test",
+   "stops",
+   "the"
+  ],
+  "key": 1,
+  "start": 42.24,
+  "end": 43.18
+ },
+ {
+  "words": [
+   "launch."
+  ],
+  "key": -1,
+  "start": 43.18,
+  "end": 43.81
+ },
+ {
+  "words": [
+   "And",
+   "the",
+   "Vasa?"
+  ],
+  "key": -1,
+  "start": 43.86,
+  "end": 44.75
+ },
+ {
+  "words": [
+   "She",
+   "sits",
+   "in"
+  ],
+  "key": -1,
+  "start": 44.76,
+  "end": 45.2
+ },
+ {
+  "words": [
+   "a",
+   "museum",
+   "in"
+  ],
+  "key": -1,
+  "start": 45.2,
+  "end": 45.86
+ },
+ {
+  "words": [
+   "Stockholm."
+  ],
+  "key": -1,
+  "start": 45.86,
+  "end": 46.51
+ },
+ {
+  "words": [
+   "Divers",
+   "raised",
+   "her"
+  ],
+  "key": -1,
+  "start": 46.74,
+  "end": 47.64
+ },
+ {
+  "words": [
+   "in",
+   "1961."
+  ],
+  "key": 1,
+  "start": 47.64,
+  "end": 48.96
+ },
+ {
+  "words": [
+   "Finally"
+  ],
+  "key": -1,
+  "start": 48.96,
+  "end": 49.54
+ },
+ {
+  "words": [
+   "completely",
+   "stable."
+  ],
+  "key": 1,
+  "start": 49.54,
+  "end": 50.65
+ },
+ {
+  "words": [
+   "In",
+   "our",
+   "lab"
+  ],
+  "key": -1,
+  "start": 50.78,
+  "end": 51.5
+ },
+ {
+  "words": [
+   "our",
+   "first",
+   "medicine"
+  ],
+  "key": -1,
+  "start": 51.5,
+  "end": 52.28
+ },
+ {
+  "words": [
+   "model",
+   "failed",
+   "its"
+  ],
+  "key": -1,
+  "start": 52.28,
+  "end": 53.14
+ },
+ {
+  "words": [
+   "test",
+   "too"
+  ],
+  "key": -1,
+  "start": 53.14,
+  "end": 53.84
+ },
+ {
+  "words": [
+   "so",
+   "we",
+   "didn't"
+  ],
+  "key": -1,
+  "start": 53.84,
+  "end": 54.36
+ },
+ {
+  "words": [
+   "ship",
+   "it."
+  ],
+  "key": -1,
+  "start": 54.36,
+  "end": 54.9
+ },
+ {
+  "words": [
+   "The",
+   "second",
+   "one"
+  ],
+  "key": -1,
+  "start": 54.9,
+  "end": 55.42
+ },
+ {
+  "words": [
+   "passed."
+  ],
+  "key": 0,
+  "start": 55.42,
+  "end": 56.03
+ },
+ {
+  "words": [
+   "Oddly",
+   "Proven."
+  ],
+  "key": -1,
+  "start": 56.06,
+  "end": 57.11
+ }
+]

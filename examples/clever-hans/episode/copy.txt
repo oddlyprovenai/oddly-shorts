@@ -1,0 +1,10 @@
+The Horse That Could Count (Until Nobody Knew the Answer)
+
+Clever Hans seemed to do arithmetic in early-1900s Germany, tapping answers with his hoof. A 13-member commission found no cheating. Then psychologist Oskar Pfungst showed Hans got the right answer only when the questioner knew it and Hans could see them: he was reading tiny involuntary cues. That's why careful experiments are double-blind.
+
+We test the SPIKE router the same way: 130 requests written blind and never used for tuning. It got 116 right (0.89). Link in @oddlyprovenai bio.
+
+Sources: Wikipedia, "Clever Hans"; O. Pfungst, Clever Hans (1907, English 1911); SPIKE docs/STATUS.md (router blind holdout).
+AI-assisted animation: original characters, synthesized voice, music and sound effects.
+
+#psychology #science #localai #shorts

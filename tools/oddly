@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+# oddly-shorts command line. Run from the root of your Remotion project.
+#
+#   oddly init                      copy the kit into src/videos/oddly-kit, install npm deps, Python env, voice models
+#   oddly new <slug> [format]       scaffold episodes/<slug>/ + src/videos/<slug>/ from a template
+#                                   (formats: story, demo, problem-solution, devlog, launch, benchmark)
+#   oddly voice <slug>              script.txt -> voice.wav (Kokoro, local) -> words.json (faster-whisper) -> captions.json
+#   oddly keyframes <Comp> <slug>   one still at every camera key (+ safe-zone guides) -> out/<slug>/keyframes.jpg
+#   oddly audio <slug>              episodes/<slug>/audio.py -> audio/mix.wav (original synthesized score + SFX)
+#   oddly render <Comp> <slug> "<NN - Title>" [outdir]
+#                                   render 1080x1920 -> mux -> QA gate -> exports 9:16, 1:1, 16:9 + copy.txt -> outdir
+#
+# Environment: ODDLY_CONCURRENCY (default 2; 1 = low-RAM mode), ODDLY_MIN_FREE_GB (default 4), ODDLY_LUFS (-14),
+#              ODDLY_VOICE (am_michael), ODDLY_SPEED (1.02), ODDLY_TEMPO (1.1), ODDLY_PY (python with the deps)
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; SKILL="$(dirname "$HERE")"
+PY="${ODDLY_PY:-$PWD/.venv/bin/python}"; [ -x "$PY" ] || PY=python3
+export TMPDIR="${ODDLY_TMP:-$HOME/remotion-tmp}"; mkdir -p "$TMPDIR"
+CONC="${ODDLY_CONCURRENCY:-2}"; MINFREE="${ODDLY_MIN_FREE_GB:-4}"
+free_gb() {
+  if [ "$(uname)" = Darwin ]; then vm_stat | awk '/page size/{ps=$8} /Pages free/{f=$3} /Pages inactive/{i=$3} END{printf "%d", (f+i)*ps/1073741824}'
+  else awk '/MemAvailable/{printf "%d", $2/1048576}' /proc/meminfo; fi
+}
+wait_resources() {
+  for _ in $(seq 1 30); do
+    if ps -Ao comm=,args= | awk '$1 ~ /(^|\/)node$/ && /remotion|oddly-stills|bridge-stills/ {f=1} END {exit !f}'; then echo "another render is running, waiting"; sleep 60; continue; fi
+    if [ "$(free_gb)" -lt "$MINFREE" ]; then echo "free RAM $(free_gb) GB < $MINFREE GB, waiting"; sleep 60; continue; fi
+    return 0
+  done
+  echo "SKIP: resources busy"; exit 3
+}
+keep_awake() { if command -v caffeinate >/dev/null; then caffeinate -i "$@"; else "$@"; fi; }
+cmd="${1:-help}"; shift || true
+case "$cmd" in
+  init)
+    mkdir -p src/videos public
+    rm -rf src/videos/oddly-kit && cp -R "$SKILL/kit" src/videos/oddly-kit
+    npm i --save-exact remotion@4.0.507 @remotion/cli@4.0.507 @remotion/three@4.0.507 @remotion/bundler@4.0.507 @remotion/renderer@4.0.507 \
+      three@0.170.0 @react-three/fiber@8.17.10 @react-three/postprocessing@2.16.6 postprocessing@6.36.4 react@18.3.1 react-dom@18.3.1
+    [ -x .venv/bin/python ] || python3 -m venv .venv
+    .venv/bin/pip install -q kokoro-onnx soundfile faster-whisper numpy scipy pillow
+    mkdir -p models
+    for f in kokoro-v1.0.onnx voices-v1.0.bin; do
+      [ -f "models/$f" ] || curl -fL -o "models/$f" "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/$f"
+    done
+    echo "oddly init: done. Next: oddly new my-first-short demo" ;;
+  new)
+    slug="$1"; fmt="${2:-demo}"; T="$SKILL/templates/$fmt"; [ -d "$T" ] || { echo "unknown format $fmt (see $SKILL/templates)"; exit 2; }
+    mkdir -p "episodes/$slug/voice" "src/videos/$slug"
+    cp -n "$T/script.txt" "$T/say.json" "episodes/$slug/voice/" 2>/dev/null || true
+    cp -n "$T/audio.py" "$T/copy.txt" "$T/SCRIPT.md" "episodes/$slug/" 2>/dev/null || true
+    cp -n "$T"/*.ts "$T"/*.tsx "src/videos/$slug/" 2>/dev/null || true
+    [ -f "$T/plan.json" ] && cp -n "$T/plan.json" "src/videos/$slug/" || true
+    echo "scaffolded episodes/$slug and src/videos/$slug from '$fmt'. Edit the script, then: oddly voice $slug" ;;
+  voice)
+    "$PY" "$HERE/voice.py" "episodes/$1" && cp "episodes/$1/voice/captions.json" "src/videos/$1/captions.json" ;;
+  keyframes)
+    comp="$1"; slug="$2"; mkdir -p "out/$slug"
+    if [ -f "src/videos/$slug/plan.json" ]; then # plan-driven ad: one still per segment, +0.4 s
+      frames=$("$PY" -c "import json,sys; print(','.join(str(round(s['from']*30)+12) for s in json.load(open(sys.argv[1]))['segments']))" "src/videos/$slug/plan.json")
+    else
+      frames=$(grep -hoE "(hold|cutTo|glideTo|track|follow)\(([0-9]+)|\{ f: ([0-9]+)" src/videos/$slug/*.ts | grep -oE "[0-9]+$" | sort -n | uniq | awk '{printf "%s%d", (NR>1?",":""), $1+5}')
+    fi
+    wait_resources
+    mkdir -p scripts && cp "$HERE/bridge-stills.mjs" scripts/oddly-stills.mjs  # node resolves @remotion/* from the project
+    BRIDGE_COMP="$comp" ODDLY_GUIDES=1 keep_awake node scripts/oddly-stills.mjs "out/$slug/k_" "$frames" 0.5
+    "$PY" - "out/$slug" "$frames" <<'PY'
+import sys, PIL.Image as I
+d, fr = sys.argv[1], sys.argv[2].split(",")
+ims = [I.open(f"{d}/k_{f}.jpg") for f in fr]; w, h = 270, 480; cols = 8; rows = (len(ims) + cols - 1) // cols
+S = I.new("RGB", (w * cols, h * rows), "black")
+for i, im in enumerate(ims): S.paste(im.resize((w, h)), ((i % cols) * w, (i // cols) * h))
+S.save(f"{d}/keyframes.jpg", quality=85); print(f"{d}/keyframes.jpg ({len(ims)} camera keys)")
+PY
+    find "$TMPDIR" -maxdepth 1 -name "remotion-webpack-bundle-*" -mmin -30 -exec rm -rf {} + ;;
+  audio)
+    ODDLY_TOOLS="$HERE" ODDLY_PLAN="src/videos/$1/plan.json" "$PY" "episodes/$1/audio.py" ;;
+  render)
+    comp="$1"; slug="$2"; name="$3"; dest="${4:-out/$slug/export}"; out="out/$slug"; mkdir -p "$out" "$dest"
+    wait_resources; touch "$out/.start"
+    keep_awake nice -n 5 npx remotion render src/index.ts "$comp" "$out/video.mp4" --codec h264 --crf 18 --concurrency="$CONC" --gl=angle --timeout=180000 --log=error
+    ffmpeg -v error -y -i "$out/video.mp4" -i "episodes/$slug/audio/mix.wav" -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 256k -ar 48000 -shortest -movflags +faststart "$out/final.mp4"
+    find "$TMPDIR" -maxdepth 1 -name "remotion-webpack-bundle-*" -newer "$out/.start" -exec rm -rf {} +
+    set +e; "$PY" "$HERE/qa.py" "$out/final.mp4" "episodes/$slug" "src/videos/$slug" --lufs "${ODDLY_LUFS:--14}"; qa=$?; set -e
+    if [ $qa -ne 0 ]; then echo "QA FAILED: see $out/final.qa.txt (nothing exported)"; exit 1; fi
+    cp "$out/final.mp4" "$dest/$name.mp4"
+    ffmpeg -v error -y -i "$out/final.mp4" -vf "crop=1080:1080:0:420" -c:a copy "$dest/$name (1x1).mp4"
+    ffmpeg -v error -y -i "$out/final.mp4" -filter_complex "[0:v]scale=1920:-2,boxblur=40:4,crop=1920:1080[bg];[0:v]scale=-2:1080[fg];[bg][fg]overlay=(W-w)/2:0" -c:a copy "$dest/$name (16x9).mp4"
+    [ -f "episodes/$slug/copy.txt" ] && cp "episodes/$slug/copy.txt" "$dest/$name.txt"
+    echo "DONE $dest/$name.mp4 (+ 1x1, 16x9, .txt)" ;;
+  *) sed -n '2,20p' "$0" ;;
+esac

@@ -1,0 +1,905 @@
+{
+ "duration": 57.099,
+ "words": [
+  {
+   "w": "The",
+   "start": 0.0,
+   "end": 0.1
+  },
+  {
+   "w": "mightiest",
+   "start": 0.1,
+   "end": 0.58
+  },
+  {
+   "w": "warship",
+   "start": 0.58,
+   "end": 1.06
+  },
+  {
+   "w": "in",
+   "start": 1.06,
+   "end": 1.2
+  },
+  {
+   "w": "Sweden",
+   "start": 1.2,
+   "end": 1.52
+  },
+  {
+   "w": "sank",
+   "start": 1.52,
+   "end": 1.9
+  },
+  {
+   "w": "before",
+   "start": 1.9,
+   "end": 2.18
+  },
+  {
+   "w": "it",
+   "start": 2.18,
+   "end": 2.36
+  },
+  {
+   "w": "even",
+   "start": 2.36,
+   "end": 2.58
+  },
+  {
+   "w": "left",
+   "start": 2.58,
+   "end": 2.82
+  },
+  {
+   "w": "the",
+   "start": 2.82,
+   "end": 2.98
+  },
+  {
+   "w": "harbour.",
+   "start": 2.98,
+   "end": 3.64
+  },
+  {
+   "w": "Stockholm,",
+   "start": 3.64,
+   "end": 4.02
+  },
+  {
+   "w": "sixteen",
+   "start": 4.36,
+   "end": 4.54
+  },
+  {
+   "w": "twenty-eight.",
+   "start": 4.54,
+   "end": 5.54
+  },
+  {
+   "w": "The",
+   "start": 5.54,
+   "end": 5.6
+  },
+  {
+   "w": "king",
+   "start": 5.6,
+   "end": 5.78
+  },
+  {
+   "w": "wanted",
+   "start": 5.78,
+   "end": 6.08
+  },
+  {
+   "w": "the",
+   "start": 6.08,
+   "end": 6.22
+  },
+  {
+   "w": "Vasa",
+   "start": 6.22,
+   "end": 6.52
+  },
+  {
+   "w": "to",
+   "start": 6.52,
+   "end": 6.72
+  },
+  {
+   "w": "be",
+   "start": 6.72,
+   "end": 6.82
+  },
+  {
+   "w": "the",
+   "start": 6.82,
+   "end": 6.96
+  },
+  {
+   "w": "strongest",
+   "start": 6.96,
+   "end": 7.36
+  },
+  {
+   "w": "ship",
+   "start": 7.36,
+   "end": 7.68
+  },
+  {
+   "w": "afloat,",
+   "start": 7.68,
+   "end": 8.18
+  },
+  {
+   "w": "so",
+   "start": 8.24,
+   "end": 8.36
+  },
+  {
+   "w": "he",
+   "start": 8.36,
+   "end": 8.46
+  },
+  {
+   "w": "ordered",
+   "start": 8.46,
+   "end": 8.74
+  },
+  {
+   "w": "seventy-two",
+   "start": 8.74,
+   "end": 9.48
+  },
+  {
+   "w": "heavy",
+   "start": 9.48,
+   "end": 9.74
+  },
+  {
+   "w": "guns.",
+   "start": 9.74,
+   "end": 10.2
+  },
+  {
+   "w": "Lots",
+   "start": 10.6,
+   "end": 10.88
+  },
+  {
+   "w": "more.",
+   "start": 10.88,
+   "end": 11.2
+  },
+  {
+   "w": "A",
+   "start": 11.54,
+   "end": 11.64
+  },
+  {
+   "w": "second",
+   "start": 11.64,
+   "end": 11.92
+  },
+  {
+   "w": "gun",
+   "start": 11.92,
+   "end": 12.22
+  },
+  {
+   "w": "deck",
+   "start": 12.22,
+   "end": 12.52
+  },
+  {
+   "w": "went",
+   "start": 12.52,
+   "end": 12.74
+  },
+  {
+   "w": "on",
+   "start": 12.74,
+   "end": 12.92
+  },
+  {
+   "w": "top.",
+   "start": 12.92,
+   "end": 13.24
+  },
+  {
+   "w": "Before",
+   "start": 13.6,
+   "end": 13.66
+  },
+  {
+   "w": "she",
+   "start": 13.66,
+   "end": 13.88
+  },
+  {
+   "w": "sailed,",
+   "start": 13.88,
+   "end": 14.3
+  },
+  {
+   "w": "they",
+   "start": 14.44,
+   "end": 14.52
+  },
+  {
+   "w": "tested",
+   "start": 14.52,
+   "end": 14.84
+  },
+  {
+   "w": "her",
+   "start": 14.84,
+   "end": 15.02
+  },
+  {
+   "w": "stability.",
+   "start": 15.02,
+   "end": 15.42
+  },
+  {
+   "w": "Thirty",
+   "start": 15.9,
+   "end": 16.08
+  },
+  {
+   "w": "sailors",
+   "start": 16.08,
+   "end": 16.52
+  },
+  {
+   "w": "ran",
+   "start": 16.52,
+   "end": 16.92
+  },
+  {
+   "w": "from",
+   "start": 16.92,
+   "end": 17.14
+  },
+  {
+   "w": "side",
+   "start": 17.14,
+   "end": 17.54
+  },
+  {
+   "w": "to",
+   "start": 17.54,
+   "end": 17.68
+  },
+  {
+   "w": "side",
+   "start": 17.68,
+   "end": 18.0
+  },
+  {
+   "w": "across",
+   "start": 18.0,
+   "end": 18.22
+  },
+  {
+   "w": "the",
+   "start": 18.22,
+   "end": 18.48
+  },
+  {
+   "w": "deck.",
+   "start": 18.48,
+   "end": 18.76
+  },
+  {
+   "w": "She",
+   "start": 18.96,
+   "end": 19.08
+  },
+  {
+   "w": "rolled",
+   "start": 19.08,
+   "end": 19.36
+  },
+  {
+   "w": "so",
+   "start": 19.36,
+   "end": 19.64
+  },
+  {
+   "w": "hard",
+   "start": 19.64,
+   "end": 19.98
+  },
+  {
+   "w": "the",
+   "start": 19.98,
+   "end": 20.14
+  },
+  {
+   "w": "admiral",
+   "start": 20.14,
+   "end": 20.52
+  },
+  {
+   "w": "stopped",
+   "start": 20.52,
+   "end": 20.82
+  },
+  {
+   "w": "the",
+   "start": 20.82,
+   "end": 21.08
+  },
+  {
+   "w": "test",
+   "start": 21.08,
+   "end": 21.32
+  },
+  {
+   "w": "after",
+   "start": 21.32,
+   "end": 21.58
+  },
+  {
+   "w": "three",
+   "start": 21.58,
+   "end": 21.86
+  },
+  {
+   "w": "runs.",
+   "start": 21.86,
+   "end": 22.26
+  },
+  {
+   "w": "And",
+   "start": 22.62,
+   "end": 22.76
+  },
+  {
+   "w": "then",
+   "start": 22.76,
+   "end": 22.88
+  },
+  {
+   "w": "they",
+   "start": 22.88,
+   "end": 23.02
+  },
+  {
+   "w": "launched",
+   "start": 23.02,
+   "end": 23.3
+  },
+  {
+   "w": "her",
+   "start": 23.3,
+   "end": 23.48
+  },
+  {
+   "w": "anyway.",
+   "start": 23.48,
+   "end": 23.76
+  },
+  {
+   "w": "About",
+   "start": 24.26,
+   "end": 24.44
+  },
+  {
+   "w": "thirteen",
+   "start": 24.44,
+   "end": 24.8
+  },
+  {
+   "w": "hundred",
+   "start": 24.8,
+   "end": 25.12
+  },
+  {
+   "w": "metres",
+   "start": 25.12,
+   "end": 25.38
+  },
+  {
+   "w": "out,",
+   "start": 25.38,
+   "end": 25.8
+  },
+  {
+   "w": "a",
+   "start": 25.98,
+   "end": 26.08
+  },
+  {
+   "w": "gust",
+   "start": 26.08,
+   "end": 26.3
+  },
+  {
+   "w": "tipped",
+   "start": 26.3,
+   "end": 26.66
+  },
+  {
+   "w": "her",
+   "start": 26.66,
+   "end": 26.82
+  },
+  {
+   "w": "over.",
+   "start": 26.82,
+   "end": 27.08
+  },
+  {
+   "w": "Water",
+   "start": 27.44,
+   "end": 27.64
+  },
+  {
+   "w": "poured",
+   "start": 27.64,
+   "end": 28.04
+  },
+  {
+   "w": "in",
+   "start": 28.04,
+   "end": 28.26
+  },
+  {
+   "w": "through",
+   "start": 28.26,
+   "end": 28.44
+  },
+  {
+   "w": "the",
+   "start": 28.44,
+   "end": 28.58
+  },
+  {
+   "w": "open",
+   "start": 28.58,
+   "end": 28.88
+  },
+  {
+   "w": "gunports,",
+   "start": 28.88,
+   "end": 29.4
+  },
+  {
+   "w": "and",
+   "start": 29.72,
+   "end": 29.8
+  },
+  {
+   "w": "down",
+   "start": 29.8,
+   "end": 30.02
+  },
+  {
+   "w": "she",
+   "start": 30.02,
+   "end": 30.26
+  },
+  {
+   "w": "went.",
+   "start": 30.26,
+   "end": 30.5
+  },
+  {
+   "w": "Luckily,",
+   "start": 30.82,
+   "end": 31.08
+  },
+  {
+   "w": "the",
+   "start": 31.54,
+   "end": 31.62
+  },
+  {
+   "w": "cold",
+   "start": 31.62,
+   "end": 31.9
+  },
+  {
+   "w": "Baltic",
+   "start": 31.9,
+   "end": 32.42
+  },
+  {
+   "w": "kept",
+   "start": 32.42,
+   "end": 32.64
+  },
+  {
+   "w": "her",
+   "start": 32.64,
+   "end": 32.78
+  },
+  {
+   "w": "safe.",
+   "start": 32.78,
+   "end": 33.06
+  },
+  {
+   "w": "Unluckily,",
+   "start": 33.58,
+   "end": 34.06
+  },
+  {
+   "w": "it",
+   "start": 34.22,
+   "end": 34.28
+  },
+  {
+   "w": "kept",
+   "start": 34.28,
+   "end": 34.52
+  },
+  {
+   "w": "her",
+   "start": 34.52,
+   "end": 34.64
+  },
+  {
+   "w": "for",
+   "start": 34.64,
+   "end": 34.8
+  },
+  {
+   "w": "three",
+   "start": 34.8,
+   "end": 35.06
+  },
+  {
+   "w": "hundred",
+   "start": 35.06,
+   "end": 35.32
+  },
+  {
+   "w": "and",
+   "start": 35.32,
+   "end": 35.58
+  },
+  {
+   "w": "thirty-three",
+   "start": 35.58,
+   "end": 35.84
+  },
+  {
+   "w": "years.",
+   "start": 35.84,
+   "end": 36.46
+  },
+  {
+   "w": "It's",
+   "start": 36.86,
+   "end": 37.04
+  },
+  {
+   "w": "like",
+   "start": 37.04,
+   "end": 37.18
+  },
+  {
+   "w": "a",
+   "start": 37.18,
+   "end": 37.3
+  },
+  {
+   "w": "bookshelf",
+   "start": 37.3,
+   "end": 37.68
+  },
+  {
+   "w": "that",
+   "start": 37.68,
+   "end": 37.9
+  },
+  {
+   "w": "wobbles",
+   "start": 37.9,
+   "end": 38.32
+  },
+  {
+   "w": "in",
+   "start": 38.32,
+   "end": 38.5
+  },
+  {
+   "w": "front",
+   "start": 38.5,
+   "end": 38.66
+  },
+  {
+   "w": "of",
+   "start": 38.66,
+   "end": 38.76
+  },
+  {
+   "w": "everyone,",
+   "start": 38.76,
+   "end": 39.16
+  },
+  {
+   "w": "and",
+   "start": 39.16,
+   "end": 39.32
+  },
+  {
+   "w": "you",
+   "start": 39.32,
+   "end": 39.44
+  },
+  {
+   "w": "still",
+   "start": 39.44,
+   "end": 39.66
+  },
+  {
+   "w": "fill",
+   "start": 39.66,
+   "end": 39.86
+  },
+  {
+   "w": "the",
+   "start": 39.86,
+   "end": 40.02
+  },
+  {
+   "w": "top",
+   "start": 40.02,
+   "end": 40.24
+  },
+  {
+   "w": "shelf.",
+   "start": 40.24,
+   "end": 40.56
+  },
+  {
+   "w": "Today,",
+   "start": 40.88,
+   "end": 41.1
+  },
+  {
+   "w": "a",
+   "start": 41.42,
+   "end": 41.54
+  },
+  {
+   "w": "failed",
+   "start": 41.54,
+   "end": 41.86
+  },
+  {
+   "w": "stability",
+   "start": 41.86,
+   "end": 42.28
+  },
+  {
+   "w": "test",
+   "start": 42.28,
+   "end": 42.66
+  },
+  {
+   "w": "stops",
+   "start": 42.66,
+   "end": 42.98
+  },
+  {
+   "w": "the",
+   "start": 42.98,
+   "end": 43.22
+  },
+  {
+   "w": "launch.",
+   "start": 43.22,
+   "end": 43.56
+  },
+  {
+   "w": "And",
+   "start": 43.9,
+   "end": 44.04
+  },
+  {
+   "w": "the",
+   "start": 44.04,
+   "end": 44.14
+  },
+  {
+   "w": "Vasa?",
+   "start": 44.14,
+   "end": 44.5
+  },
+  {
+   "w": "She",
+   "start": 44.8,
+   "end": 44.9
+  },
+  {
+   "w": "sits",
+   "start": 44.9,
+   "end": 45.1
+  },
+  {
+   "w": "in",
+   "start": 45.1,
+   "end": 45.24
+  },
+  {
+   "w": "a",
+   "start": 45.24,
+   "end": 45.32
+  },
+  {
+   "w": "museum",
+   "start": 45.32,
+   "end": 45.72
+  },
+  {
+   "w": "in",
+   "start": 45.72,
+   "end": 45.9
+  },
+  {
+   "w": "Stockholm.",
+   "start": 45.9,
+   "end": 46.26
+  },
+  {
+   "w": "Divers",
+   "start": 46.78,
+   "end": 47.08
+  },
+  {
+   "w": "raised",
+   "start": 47.08,
+   "end": 47.52
+  },
+  {
+   "w": "her",
+   "start": 47.52,
+   "end": 47.68
+  },
+  {
+   "w": "in",
+   "start": 47.68,
+   "end": 47.8
+  },
+  {
+   "w": "nineteen",
+   "start": 47.8,
+   "end": 48.4
+  },
+  {
+   "w": "sixty-one.",
+   "start": 48.4,
+   "end": 49.0
+  },
+  {
+   "w": "Finally,",
+   "start": 49.0,
+   "end": 49.38
+  },
+  {
+   "w": "completely",
+   "start": 49.58,
+   "end": 49.94
+  },
+  {
+   "w": "stable.",
+   "start": 49.94,
+   "end": 50.4
+  },
+  {
+   "w": "In",
+   "start": 50.82,
+   "end": 50.94
+  },
+  {
+   "w": "our",
+   "start": 50.94,
+   "end": 51.08
+  },
+  {
+   "w": "lab,",
+   "start": 51.08,
+   "end": 51.42
+  },
+  {
+   "w": "our",
+   "start": 51.54,
+   "end": 51.64
+  },
+  {
+   "w": "first",
+   "start": 51.64,
+   "end": 51.92
+  },
+  {
+   "w": "medicine",
+   "start": 51.92,
+   "end": 52.32
+  },
+  {
+   "w": "model",
+   "start": 52.32,
+   "end": 52.7
+  },
+  {
+   "w": "failed",
+   "start": 52.7,
+   "end": 52.98
+  },
+  {
+   "w": "its",
+   "start": 52.98,
+   "end": 53.18
+  },
+  {
+   "w": "test",
+   "start": 53.18,
+   "end": 53.46
+  },
+  {
+   "w": "too,",
+   "start": 53.46,
+   "end": 53.74
+  },
+  {
+   "w": "so",
+   "start": 53.88,
+   "end": 53.96
+  },
+  {
+   "w": "we",
+   "start": 53.96,
+   "end": 54.08
+  },
+  {
+   "w": "didn't",
+   "start": 54.08,
+   "end": 54.4
+  },
+  {
+   "w": "ship",
+   "start": 54.4,
+   "end": 54.56
+  },
+  {
+   "w": "it.",
+   "start": 54.56,
+   "end": 54.7
+  },
+  {
+   "w": "The",
+   "start": 54.94,
+   "end": 55.04
+  },
+  {
+   "w": "second",
+   "start": 55.04,
+   "end": 55.28
+  },
+  {
+   "w": "one",
+   "start": 55.28,
+   "end": 55.46
+  },
+  {
+   "w": "passed.",
+   "start": 55.46,
+   "end": 55.78
+  },
+  {
+   "w": "Oddly",
+   "start": 56.1,
+   "end": 56.48
+  },
+  {
+   "w": "Proven.",
+   "start": 56.48,
+   "end": 56.86
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+# Sound for EP01 (Vasa): original march for the harbour, tension for the stability test, stinger on the gust,
+# a hole when she sinks, Luckily/Unluckily stingers, a music box for the bookshelf, a reprise for the lab line.
+import os, sys
+sys.path.insert(0, os.environ.get("ODDLY_TOOLS", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "tools")))
+import oddaudio as A
+EP = os.path.dirname(os.path.abspath(__file__))
+DUR = 1752 / 30
+s = A.Score(DUR, 1628)
+s.plucks(0.0, 3.6, ["F", "C7"], 0.4); s.triangle(3.63)
+s.oompah(3.64, 13.6, ["F", "F", "C7", "F", "Bb", "F", "C7", "F"], 0.55); s.melody(5.6, 13.4)
+s.plucks(13.6, 22.6, ["Dm", "Dm", "Gm", "A7"], 0.45); s.unlucky(20.45)
+s.oompah(22.6, 26.0, ["F", "C7"], 0.5); s.roll_to_crash(24.3, 26.3)
+s.pad(27.4, 3.4, "Dm", 0.4, att=0.3)
+s.lucky(30.82); s.pad(30.9, 2.6, "F", 0.35); s.unlucky(33.58)
+s.melody(36.86, 40.0, "sly", 12, "musicbox"); s.deflate(40.1)
+s.plucks(40.88, 43.9, ["C", "G"], 0.4)
+s.pad(43.9, 6.6, "F", 0.35, att=1.0); s.melody(44.8, 50.6, "march", 12, "vibes", 0.4)
+s.oompah(50.82, 56.0, ["F", "Bb", "C7", "F"], 0.45); s.lucky(55.4); s.button(56.4)
+x = A.Sfx(DUR, 1628)
+x.bed(x.water(23.0, 0.7), 3.6, 0.8); x.bed(x.murmur(9.0, 8), 3.6, 0.5); x.bed(x.breeze(23, 0.6), 3.6)
+for k in range(10): x.event(x.creak(0.9), 16.2 + k * 0.45, 0.25 + 0.05 * k, -0.3 + 0.06 * k)
+for k in range(14): x.event(x.thump(), 16.0 + k * 0.32, 0.25, 0.2)
+x.event(x.whoosh(1.2, 0.8), 25.4, 0.7); x.event(x.creak(1.6), 26.3, 0.9); x.event(x.splash(), 27.5, 0.8); x.event(x.splash(), 29.7, 1.0)
+x.bed(x.water(6.0, 1.0), 26.0, 1.0)
+x.event(x.creak(1.0), 37.9, 0.6); x.event(x.crack(), 40.05, 0.6)
+x.bed(x.breeze(3.0, 0.4), 40.9); x.bed(x.murmur(6.5, 6), 43.9, 0.4)
+x.event(x.whoosh(), 3.45, 0.5)
+for c in (13.6, 15.9, 22.6, 30.82, 36.86, 40.88, 43.9, 50.82): x.event(x.whoosh(), c - 0.2, 0.25)
+x.event(x.scribble(), 52.4, 0.4); x.event(x.pop(), 55.4, 0.5)
+A.mix(EP, s, x)

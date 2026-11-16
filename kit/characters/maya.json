@@ -1,0 +1,14 @@
+{
+  "name": "Maya",
+  "role": "example second host (product designer)",
+  "skin": "#c99067",
+  "hair": { "color": "#1f1a18", "style": "bun" },
+  "glasses": "square",
+  "top": { "color": "#2f8f8a", "buttons": "#1f5f5c", "shirt": "#ffffff", "collar": false },
+  "pants": "#2b2f3a",
+  "shoes": "#D97757",
+  "pin": { "kind": "star", "color": "#f3d23a" },
+  "pocket": { "kind": "pen", "color": "#e2453c" },
+  "build": "adult",
+  "seed": 5
+}

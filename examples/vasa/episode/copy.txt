@@ -1,0 +1,10 @@
+The Warship That Failed Its Test and Launched Anyway
+
+Stockholm, 1628. Before her maiden voyage, 30 sailors ran across the Vasa's deck to test her stability. She rolled so hard the admiral stopped the test after three runs. They launched her anyway: about 1,300 m out, a gust heeled her over, water poured through the open lower gunports and she sank in the harbour. She was raised in 1961 and is now in the Vasa Museum in Stockholm.
+
+In our lab, the first SPIKE medicine adapter failed its acceptance test (it hurt general knowledge), so we didn't ship it. The second one passed. Link in @oddlyprovenai bio.
+
+Sources: Wikipedia, "Vasa (ship)"; SPIKE docs/STATUS.md (medicine adapter, rounds 1 and 2).
+AI-assisted animation: original characters, synthesized voice, music and sound effects.
+
+#history #engineering #localai #shorts
