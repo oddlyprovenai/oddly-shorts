@@ -74,7 +74,7 @@ worse." re-hook around 15 s, one visual gag per beat, a callback punchline, end 
 Characters live in `kit/characters/<name>.json` (skin, hair style + colour, glasses, top + shirt, trousers, shoes,
 pin, pocket prop, build, fixed head seed). `host(out, cam, CHARACTER, pos, t, exprTimeline)` draws the same person
 every time; expression changes are hidden behind a 4-frame blink. Presets: `otto` (AI engineer, mustard cardigan,
-round glasses, cactus pin, notebook), `guru` (AI guru for ads: messy dark hair, round glasses, stubble, charcoal
+round glasses, cactus pin, notebook), `marc` (Marc, the ads host: messy dark hair, round glasses, stubble, charcoal
 overshirt over a cream tee, cactus pin) and `maya` (designer). Never give a bystander the host's colour combination.
 
 ## 5. Look rules (kept from the bridge renderer)

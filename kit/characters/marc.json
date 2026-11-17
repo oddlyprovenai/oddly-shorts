@@ -1,0 +1,29 @@
+{
+  "name": "Marc",
+  "role": "Marc, the Oddly Proven host (fictional, AI-generated; same character as the Flow clips)",
+  "skin": "#e8c09c",
+  "hair": {
+    "color": "#2a211c",
+    "style": "tuft"
+  },
+  "glasses": "round",
+  "stubble": "#4a3a30",
+  "top": {
+    "color": "#4d5058",
+    "buttons": "#2f3136",
+    "shirt": "#efe6d2",
+    "collar": true
+  },
+  "pants": "#2b2f3a",
+  "shoes": "#3a2a20",
+  "pin": {
+    "kind": "cactus",
+    "color": "#5FBB47"
+  },
+  "pocket": {
+    "kind": "none",
+    "color": "#000000"
+  },
+  "build": "adult",
+  "seed": 2
+}

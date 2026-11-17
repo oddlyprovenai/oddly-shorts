@@ -11,7 +11,7 @@ renderer and synthesized audio are the foundation. oddly-shorts adds everything 
 ## What it adds
 | | |
 |---|---|
-| **Character kit** | define a host once (`kit/characters/*.json`: hair, glasses, outfit, colours, pin, pocket prop, head shape) and get the identical character in every video; expression changes hide behind blinks. Presets: `otto` (AI engineer), `guru` (AI guru for ads), `maya` (designer). |
+| **Character kit** | define a host once (`kit/characters/*.json`: hair, glasses, outfit, colours, pin, pocket prop, head shape) and get the identical character in every video; expression changes hide behind blinks. Presets: `otto` (AI engineer), `marc` (Marc, the ads host), `maya` (designer). |
 | **Tech-ad scene library** | desk with two live monitors: typing terminal (generic `lab@mac-studio ~ %` prompt, never your real user or paths), code editor, app screenshots, mock app, animated bar-chart number reveals, before/after split; product cameos on the desk. |
 | **Dialogue ads** | a host and a talking cactus buddy with lip-sync, two local voices (one profile per speaker, with a mandatory consent field: no cloning of third-party voices), a camera cut on every line built automatically from the voice timings, top step tags. |
 | **Subtitles by default** | word-synced 1-3 word cards, bold rounded type with outline, key-word highlight (`pop`) or `karaoke`, placed in the band TikTok / Shorts / Reels leave free. |
@@ -20,6 +20,7 @@ renderer and synthesized audio are the foundation. oddly-shorts adds everything 
 | **One command per step** | `oddly new / voice / keyframes / audio / render`: script -> Kokoro voice (local) -> faster-whisper word timing -> captions -> scenes -> original score + SFX mix -> render -> QA -> exports 9:16, 1:1, 16:9 + title / caption / hashtags. |
 | **QA gate** | specs, duration, loudness (-14 LUFS, true peak <= -1 dBTP), black / frozen frames, subtitle sync and coverage, and a PII scan of every text file and (with tesseract) OCR of the frames: fails on `/Users/`, `/home/`, e-mails, API-key shapes, your user / host name or git identity. |
 | **Keyframe check** | one still per camera key with safe-zone guides, so no character ends up outside a 9:16 frame. |
+| **Reel editor** (`edit/`) | turns talking-head recordings or AI clips into reels without cutting voice: energy-safe pause removal + cut report, transcript diff after every step, phone-voice chain to -14 LUFS, word-by-word captions, punch-ins, lab cards, storyboard with real frames, 7 hook variants, QA with OCR PII scan. |
 | **Low-RAM mode** | one render at a time, waits for free memory (`ODDLY_MIN_FREE_GB`), `ODDLY_CONCURRENCY=1` for 16 GB machines; macOS and Linux. |
 
 ## Quick start

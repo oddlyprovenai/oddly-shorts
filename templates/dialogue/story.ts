@@ -12,7 +12,7 @@ import lines from "./lines.json";
 import { Expr } from "../oddly-kit/toon";
 import { CharacterSpec } from "../oddly-kit/character";
 import { Overlay } from "../oddly-kit/Overlays";
-import GURU from "../oddly-kit/characters/guru.json";
+import MARC from "../oddly-kit/characters/marc.json";
 import plan from "./plan.json";
 import captions from "./captions.json";
 
@@ -22,7 +22,7 @@ type ScreenItem = { from: number; to: number; screen: "main" | "side"; kind: "te
 type Plan = { total: number; accent: string; cameo: "cactus" | "padlock" | "none"; segments: { from: number; cam: Cam; light?: "day" | "golden" }[];
   expr: [number, Expr][]; screens: ScreenItem[]; buddy?: { mood?: [number, "happy" | "proud" | "worried" | "wink"][]; prop?: "lock" | null; wave?: number[] }; overlays: Overlay[]; images?: Record<string, string>; flashAt?: number; subStyle?: "pop" | "karaoke" };
 const P = plan as unknown as Plan;
-const HOST = GURU as CharacterSpec;
+const HOST = MARC as CharacterSpec;
 const FPS = 30, TOTAL = Math.round(P.total * FPS);
 
 // camera presets: the host stands at HOST_AT (right of the desk) so screen shots never have him in the way
