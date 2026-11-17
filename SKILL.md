@@ -44,7 +44,10 @@ Write **three hook variants** at the top of SCRIPT.md for A/B tests; voice the b
    faster-whisper word times -> `captions.json` (1-3 word cards, key word, per-word times). Aim for 50-62 s.
 4. Scenes. Ad formats: edit `plan.json` only: `segments` (camera preset per beat: host / medium / screen / side /
    over / wide), `expr` (host expression timeline), `screens` (terminal / code / shot / mock / bars / split per
-   screen and time), `overlays` (number reveal, lower third, end card), `images` (screenshots under public/).
+   screen and time), `overlays` (number reveal, lower third, end card), `images` (screenshots under public/),
+   `anchored` + `anchoredAt` (animated graphics that pop above the host's head or beside a shoulder and follow the
+   camera: bar, meter, lock, receipt, stamp, icons, chip, dots, flat; see `kit/Anchored.tsx` and edit/SKILL.md).
+   Rule: illustrate, don't repeat. A graphic shows the idea being said, never the sentence; never on the face.
    Story format: write sets + cameras in story.ts (see examples/vasa, examples/clever-hans).
 5. `oddly keyframes <Comp> <slug>`: one still per camera key with safe-zone guides -> `out/<slug>/keyframes.jpg`.
    Look at it. Fix: subject outside the frame (a 9:16 frame sees only about +-11.6 deg horizontally at fov 40),

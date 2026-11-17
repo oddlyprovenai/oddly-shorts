@@ -40,6 +40,10 @@ export type Episode = {
   subStyle?: SubStyle; overlays?: Overlay[];
   /** screenshots for app-screen inserts: name -> path under public/ (preloaded before the first frame) */
   images?: Record<string, string>;
+  /** overlays anchored to the host's head / shoulders (kit/Anchored.tsx): kinds counter-free bar, meter, lock, receipt,
+   *  stamp, icons, chip, dots, flat; anchoredAt gives the world-space head centre and radius per shot and frame */
+  anchored?: { kind: string; from: number; dur: number; anchor: "head" | "rshoulder" | "lshoulder" | "chest"; d: any }[];
+  anchoredAt?: (id: number, f: number) => { head: V3; r: number } | null;
 };
 
 // ---------------- camera helpers ----------------

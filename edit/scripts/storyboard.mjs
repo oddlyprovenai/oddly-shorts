@@ -11,7 +11,7 @@ const { bundle } = await import(path.resolve("node_modules/@remotion/bundler/dis
 const { renderStill, selectComposition } = await import(path.resolve("node_modules/@remotion/renderer/dist/index.js")).catch(() => import("@remotion/renderer"));
 const [propsFile, out, extra = ""] = process.argv.slice(2);
 const props = JSON.parse(fs.readFileSync(propsFile, "utf8"));
-const times = [...props.clips.map((c) => Math.min(c.start + 0.6, props.duration - 0.1)), ...props.cards.map((c) => c.from + 0.75), props.voiceEnd + 0.9,
+const times = [...props.clips.map((c) => Math.min(c.start + 0.6, props.duration - 0.1)), ...props.cards.map((c) => c.from + 0.75), ...(props.overlays ?? []).map((o) => o.from + Math.min(1.3, o.dur * 0.6)), props.voiceEnd + 0.9,
   ...extra.split(",").filter(Boolean).map(Number)].sort((a, b) => a - b);
 const chrome = [path.resolve("node_modules/.remotion/chrome-headless-shell/mac-arm64/chrome-headless-shell-mac-arm64/chrome-headless-shell"), "/usr/bin/chromium"].find((p) => fs.existsSync(p)) ?? null;
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts"), publicDir: path.resolve("public") });

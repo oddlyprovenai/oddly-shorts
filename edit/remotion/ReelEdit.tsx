@@ -3,8 +3,14 @@
 // word-by-word captions under the face and out of the bottom 20 %, 1.5 s lab-card cutaways, an "AI-generated" tag
 // in the first 3 s, a 1.5 s end card, and an optional on-screen hook text (hook variants). Props come from
 // reel-edit/scripts/build_props.py.
+// v2: no full-screen cutaways. Overlays (overlays.tsx) appear while the host keeps talking, anchored above the head or
+// beside a shoulder from a local face track (face.swift), follow the punch-in, and never cover the face, the captions,
+// the hook text, the AI tag or the bottom 20 %. Captions sit just under the chin; the punch-in is capped so they fit.
 import React from "react";
 import { AbsoluteFill, Audio, OffthreadVideo, staticFile, useCurrentFrame, interpolate, random } from "remotion";
+import { faceAt, toScreen, maxZoomFor, place, Face, Rect, W, H } from "./anchors";
+import { KINDS, OverlayBody, Ov } from "./overlays";
+import { Motion } from "./fx";
 
 export type ReelCaption = { words: string[]; key: number; start: number; end: number };
 export type ReelProps = {
@@ -12,7 +18,9 @@ export type ReelProps = {
   clips: { start: number; end: number; zoom: number; ox: number; oy: number }[];
   punch: number[];                               // edit-time seconds where the punch-in toggles
   captions: ReelCaption[];
-  cards: { from: number; dur: number; text: string; sub?: string }[];
+  cards: { from: number; dur: number; text: string; sub?: string }[];   // legacy full-screen card (v1); prefer overlays
+  overlays?: Ov[];
+  face?: Face[];
   end: { title: string; line: string };
   hook?: { text: string; until: number } | null;
 };
@@ -32,7 +40,18 @@ export const ReelEdit: React.FC<ReelProps> = (p) => {
   const clip = p.clips.find((c) => t >= c.start && t < c.end) ?? p.clips[p.clips.length - 1];
   const k = p.punch.filter((x) => t >= x).length, punch = k % 2 ? 1.12 : 1.0;
   const last = Math.max(0, ...p.punch.filter((x) => t >= x)), ease = interpolate(t - last, [0, 0.35], [k % 2 ? 1.0 : 1.12, punch], { extrapolateRight: "clamp" });
-  const z = clip.zoom * ease;
+  const fz = faceAt(p.face ?? [], t, clip.start, clip.end);
+  const zcap = fz ? Math.max(clip.zoom, maxZoomFor(fz, clip.oy)) : 99;
+  const z = Math.min(clip.zoom * ease, zcap);
+  const face: Rect = fz ? toScreen(fz, z, clip.ox, clip.oy) : { x: W * 0.25, y: H * 0.2, w: W * 0.5, h: H * 0.3 };
+  const live = (p.overlays ?? []).filter((o) => t >= o.from && t < o.from + o.dur);
+  const capH = H * 0.13, chestOn = live.some((o) => o.anchor === "chest");
+  // captions under the chin; while a chest card is up they move above the head (over the hair, never the face)
+  const capTop = chestOn ? Math.max(H * 0.05, face.y - 30 - capH) : Math.min(Math.max(face.y + face.h + 8, H * 0.56), H * 0.66);
+  const hookOn = !!p.hook && t < p.hook.until;
+  const obstacles: Rect[] = [{ x: W * 0.06, y: capTop, w: W * 0.88, h: capH }];
+  if (hookOn) obstacles.push({ x: W * 0.06, y: H * 0.07, w: W * 0.88, h: H * 0.15 });
+  if (t < 3) obstacles.push({ x: W * 0.6, y: H * 0.04, w: W * 0.38, h: 80 });
   const card = p.cards.find((c) => t >= c.from && t < c.from + c.dur);
   const cap = p.captions.find((c) => t >= c.start && t < c.end);
   const ending = t >= p.voiceEnd;
@@ -56,6 +75,18 @@ export const ReelEdit: React.FC<ReelProps> = (p) => {
           </div>
         </AbsoluteFill>
       )}
+      {!ending && live.map((o, i) => {
+        const K = KINDS[o.kind]; if (!K) return null;
+        // place on the overlay's own start frame face as well, so it doesn't drift away from where it popped
+        const f0 = faceAt(p.face ?? [], Math.max(o.from + 0.1, clip.start), clip.start, clip.end);
+        const a0 = f0 ? place(toScreen(f0, z, clip.ox, clip.oy), K.w, K.h, o.anchor, obstacles).a : o.anchor;   // sticky anchor
+        const r = place(face, K.w, K.h, a0, obstacles);
+        return (
+          <div key={i} style={{ position: "absolute", left: r.x, top: r.y, width: K.w, height: K.h, transform: `scale(${r.s})`, transformOrigin: "0 0" }}>
+            <Motion l={t - o.from} dur={o.dur}><OverlayBody ov={o} l={t - o.from} accent={p.accent} /></Motion>
+          </div>
+        );
+      })}
       {p.hook && t < p.hook.until && !card && (
         <div style={{ position: "absolute", top: "8%", left: "8%", width: "84%", textAlign: "center", fontFamily: SANS, fontWeight: 900,
           fontSize: 66, lineHeight: 1.1, color: "#fff", WebkitTextStroke: "12px #0E1116", paintOrder: "stroke fill" }}>{p.hook.text}</div>
@@ -65,7 +96,7 @@ export const ReelEdit: React.FC<ReelProps> = (p) => {
           fontFamily: SANS, fontWeight: 700, fontSize: 26, padding: "8px 16px", borderRadius: 999 }}>AI-generated</div>
       )}
       {cap && !card && !ending && (
-        <div style={{ position: "absolute", top: "61%", height: "14%", left: "6%", width: "88%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "absolute", top: capTop, height: capH, left: "6%", width: "88%", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <div style={{ fontFamily: SANS, fontWeight: 900, fontSize: cap.words.join(" ").length > 12 ? 96 : 116, color: "#fff", textTransform: "uppercase",
             WebkitTextStroke: "16px #0E1116", paintOrder: "stroke fill", textAlign: "center", letterSpacing: 1,
             transform: `scale(${interpolate(f - Math.round(cap.start * p.fps), [0, 3], [0.9, 1], { extrapolateRight: "clamp" })})` }}>

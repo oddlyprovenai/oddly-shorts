@@ -17,6 +17,7 @@ import { KitWorld } from "./world";
 import { Episode, layersAt, dofAt } from "./episode";
 import { Subtitles } from "./Subtitles";
 import { Overlays } from "./Overlays";
+import { Anchored } from "./Anchored";
 import { IMAGES } from "./screens";
 import { InkPass, noInkFallback } from "./ink";
 import { LensBlur, GrainEffect } from "./lensblur";
@@ -128,6 +129,7 @@ export const makeShort = (ep: Episode): React.FC => {
         {layersAt(ep, f).map((l, i) => <ShotView key={i ? "over" : "base"} ep={ep} id={l.id} kit={kit} alpha={l.alpha} />)}
         {flash > 0 && <AbsoluteFill style={{ background: "#ffffff", opacity: flash }} />}
         <Overlays items={ep.overlays ?? []} accent={ep.accent} />
+        <Anchored ep={ep} />
         <Subtitles captions={ep.captions} accent={ep.accent} style={ep.subStyle} hideFrom={end?.from} />
       </AbsoluteFill>
     );

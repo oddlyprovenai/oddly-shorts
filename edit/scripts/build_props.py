@@ -32,9 +32,34 @@ for cd in series.get("cards", []):
     key = cd.get("at_word") or cd["after_word"]           # at_word: the card appears while that word is said
     hit = next((c for c in caps if any(clean(w) == clean(key) for w in c["words"])), None)
     if hit: cards.append({"from": round(hit["start"] if cd.get("at_word") else hit["end"], 3), "dur": 1.5, "text": cd["text"], **({"sub": cd["sub"]} if cd.get("sub") else {})})
+# overlays (v2): appear while the host talks, anchored to the face track. series.json "overlays":
+#   [{"kind": "bar", "at_word": "from", "dur": 3.2, "anchor": "rshoulder", "d": {..., "afterAt": "67%", "items": [{"at": "money,"}]}}]
+# Word references ("word" or "word#2" for the 2nd occurrence) anywhere in d under a key "at" or ending in "At" become
+# seconds relative to the overlay start (searched from the overlay start on).
+words = []
+for c in caps:
+    n = len(c["words"])
+    for i, w in enumerate(c["words"]): words.append((clean(w), c["start"] + (c["end"] - c["start"]) * i / n))
+def word_t(ref, after=0.0):
+    w, _, k = ref.partition("#"); hits = [t for x, t in words if x == clean(w) and t >= after - 1e-6]
+    if not hits: raise SystemExit(f"overlay word not found: {ref!r} after {after:.2f} s")
+    return hits[int(k or 1) - 1]
+def resolve(v, t0):
+    if isinstance(v, dict): return {k: (round(word_t(x, t0) - t0, 3) if (k == "at" or k.endswith("At")) and isinstance(x, str) else resolve(x, t0)) for k, x in v.items()}
+    if isinstance(v, list): return [resolve(x, t0) for x in v]
+    return v
+overlays = []
+for o in series.get("overlays", []):
+    t0 = round(word_t(o["at_word"]) + o.get("shift", 0.0), 3)
+    overlays.append({"kind": o["kind"], "from": t0, "dur": o.get("dur", 1.8), "anchor": o.get("anchor", "head"), "d": resolve(o.get("d", {}), t0)})
+face_p = os.path.join(work, "face.json")
+if not os.path.exists(face_p):
+    subprocess.run(["swift", os.path.join(os.path.dirname(os.path.abspath(__file__)), "face.swift"), os.path.join(work, "cut.mov"), face_p], check=True, capture_output=True)
+face = [[r["t"], round(r["x"], 4), round(r["y"], 4), round(r["w"], 4), round(r["h"], 4)] for r in json.load(open(face_p))]
 hook_until = next((c["end"] for c in caps if any(w.lower() == series["hook_end_word"].lower() for w in c["words"])), 3.0)
 # audio: voice + original ambient bed, then loudness to -14 LUFS, TP -1.5
-sys.path.insert(0, os.environ.get("ODDLY_TOOLS", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "tools")))
+_here = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "tools")   # inside the oddly-shorts repo
+sys.path.insert(0, os.environ.get("ODDLY_TOOLS") or (_here if os.path.exists(os.path.join(_here, "oddaudio.py")) else os.path.expanduser("~/Downloads/oddly-shorts/tools")))
 import oddaudio as A
 from dsp import read_wav, write_wav, place, integrated, dbg, norm_to
 import numpy as np
@@ -53,7 +78,7 @@ pub = os.path.join(proj, "public", "reel", S); os.makedirs(pub, exist_ok=True)
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", os.path.join(work, "cut.mov"), "-an", "-c:v", "libx264", "-crf", "14", "-pix_fmt", "yuv420p", os.path.join(pub, "video.mp4")], check=True)
 shutil.copy(os.path.join(work, "mix.wav"), os.path.join(pub, "mix.wav"))
 props = {"video": f"reel/{S}/video.mp4", "audio": f"reel/{S}/mix.wav", "fps": 30, "duration": round(dur + END, 3), "voiceEnd": round(dur, 3),
-         "accent": series["accent"], "clips": clips, "punch": punch, "captions": caps, "cards": cards, "end": series["end"], "hook": None,
+         "accent": series["accent"], "clips": clips, "punch": punch, "captions": caps, "cards": cards, "overlays": overlays, "face": face, "end": series["end"], "hook": None,
          "hookUntil": round(hook_until, 3)}
 json.dump(props, open(os.path.join(work, "props.json"), "w"), indent=1)
-print(f"props: {len(clips)} clips, {len(punch)} punch toggles, {len(cards)} cards, hook ends {hook_until:.2f} s, total {dur + END:.2f} s")
+print(f"props: {len(clips)} clips, {len(punch)} punch toggles, {len(cards)} cards, {len(overlays)} overlays, {len(face)} face boxes, hook ends {hook_until:.2f} s, total {dur + END:.2f} s")
