@@ -1,0 +1,11 @@
+{"accent": "#88D445", "title": "SPIKE", "promise": "Free, open source, runs on 16 GB", "prop": null,
+ "cams": {"0": "host", "2": "two", "4": "host", "5": "screen", "7": "side", "8": "two", "9": "screen", "13": "over", "14": "two", "17": "two"},
+ "tags": {"5": ["STEP 1 ·", "ONE COMMAND"], "7": ["16 GB ·", "CPU ONLY"], "9": ["13 SPECIALISTS ·", "ONE MODEL"], "11": ["BLIND TEST ·", "NEVER SEEN"], "13": ["YOUR DATA ·", "STAYS HOME"]},
+ "screens": [{"line": 5, "to_line": 6, "screen": "main", "kind": "terminal", "cps": 30, "lines": ["$ spike serve --open", "# app at 127.0.0.1:8740"]},
+             {"line": 7, "to_line": 8, "screen": "side", "kind": "terminal", "cps": 34, "lines": ["$ spike bench --gpu-layers 0", "# 16 GB x86, CPU only", "# 6.2 tok/s at a 1K prompt"]},
+             {"line": 9, "to_line": 12, "screen": "main", "kind": "mock", "title": "13 specialists"},
+             {"line": 13, "to_line": 14, "screen": "main", "kind": "mock", "title": "allow / ask / deny"},
+             {"line": 15, "screen": "main", "kind": "mock", "title": "SPIKE"}],
+ "numbers": [{"line": 7, "before": "6.2", "after": "tok/s", "label": "16 GB laptop, CPU only"}, {"line": 11, "before": "116/130", "after": "0.89", "label": "router, blind test"}],
+ "expr": {"0": "nervous", "4": "stern", "6": "smile", "10": "nervous", "14": "neutral", "16": "shock", "17": "grin"},
+ "moods": {"3": "proud", "11": "proud", "15": "wink"}, "waves": [17]}

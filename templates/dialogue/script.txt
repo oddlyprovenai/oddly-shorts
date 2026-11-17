@@ -1,0 +1,18 @@
+G| Cactus, my AI subscription just hit its daily *limit*. Again.
+C| Then stop *renting* it.
+G| Run AI on my laptop? It's sixteen gigs. No graphics card.
+C| That's *exactly* what I run on.
+G| Prove it.
+C| Step one. One command, and I'm *up*.
+G| Okay, but is it fast?
+C| About *six* tokens a second, on the CPU alone.
+G| One small model can't know medicine and law.
+C| Thirteen *specialists* share me. A router picks the right one.
+G| How often does it pick wrong?
+C| We tested it blind. *116* out of 130 right.
+G| And my data?
+C| Never leaves your laptop. Paid APIs stay *off* until you say so.
+G| What's the catch?
+C| It's free and *open* source.
+G| That's it?
+C| That's it. *Link* in bio.

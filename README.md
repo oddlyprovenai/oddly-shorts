@@ -11,8 +11,9 @@ renderer and synthesized audio are the foundation. oddly-shorts adds everything 
 ## What it adds
 | | |
 |---|---|
-| **Character kit** | define a host once (`kit/characters/*.json`: hair, glasses, outfit, colours, pin, pocket prop, head shape) and get the identical character in every video; expression changes hide behind blinks. Presets: `otto` (AI engineer), `maya` (designer). |
+| **Character kit** | define a host once (`kit/characters/*.json`: hair, glasses, outfit, colours, pin, pocket prop, head shape) and get the identical character in every video; expression changes hide behind blinks. Presets: `otto` (AI engineer), `guru` (AI guru for ads), `maya` (designer). |
 | **Tech-ad scene library** | desk with two live monitors: typing terminal (generic `lab@mac-studio ~ %` prompt, never your real user or paths), code editor, app screenshots, mock app, animated bar-chart number reveals, before/after split; product cameos on the desk. |
+| **Dialogue ads** | a host and a talking cactus buddy with lip-sync, two local voices (one profile per speaker, with a mandatory consent field: no cloning of third-party voices), a camera cut on every line built automatically from the voice timings, top step tags. |
 | **Subtitles by default** | word-synced 1-3 word cards, bold rounded type with outline, key-word highlight (`pop`) or `karaoke`, placed in the band TikTok / Shorts / Reels leave free. |
 | **Overlays** | big before -> after number reveals, lower thirds, end card with your call to action. |
 | **Ad formats** | `demo`, `problem-solution`, `devlog`, `launch`, `benchmark`, `story`: script skeletons, three hook variants for A/B, plan-driven scenes (edit `plan.json`, not code). |

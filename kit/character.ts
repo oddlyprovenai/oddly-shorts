@@ -14,6 +14,7 @@ export type CharacterSpec = {
   pin?: { kind: "cactus" | "star" | "heart" | "none"; color: string };
   pocket?: { kind: "notebook" | "pen" | "none"; color: string };
   moustache?: string;
+  stubble?: string;                              // short beard shadow colour
   build?: "adult" | "stout" | "kid";
   seed: number;                                  // fixed head shape (1-7)
 };
@@ -62,6 +63,10 @@ export const drawCharacter = (p: Pen, c: CharacterSpec, o: Pose = {}) => {
   }
   if (c.pocket && c.pocket.kind !== "none") // pocket flap
     p.poly([[nx - 9 * u, ny - 1 * u], [nx + 9 * u, ny - 1 * u], [nx + 9 * u, ny + 8 * u], [nx - 9 * u, ny + 8 * u]], shade(c.top.color), 1.5 * u);
+  if (c.stubble) { // light beard shadow on the jaw: soft dots under the mouth line
+    const g = p.g; g.save(); g.globalAlpha = 0.24; g.fillStyle = c.stubble;
+    g.beginPath(); g.ellipse(300, hc + 0.56 * H.b, 0.6 * H.a, 0.34 * H.b, 0, 0, Math.PI); g.fill(); g.restore();
+  }
   if (c.hair.style === "tuft")
     p.poly([[300 - 9 * u, crown + 5 * u], [300 - 4 * u, crown - 9 * u], [300, crown + 2 * u], [300 + 6 * u, crown - 11 * u], [300 + 9 * u, crown + 4 * u]], c.hair.color, 1.8 * u);
   else if (c.hair.style === "bun") p.ell(300, crown - 6 * u, 12 * u, 10 * u, c.hair.color, 1.8 * u);

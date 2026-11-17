@@ -24,6 +24,7 @@ subtitles, overlays, ad formats, one-command tooling and a QA gate. Everything r
 | `devlog` | "day N building X" -> what I tried -> what broke -> the fix / the number -> next step -> CTA |
 | `launch` | "it's out" -> the one new thing -> 2 details -> who it's for -> CTA |
 | `benchmark` | the question -> setup (hardware, test) -> numbers revealed one by one (facts file only) -> caveat -> CTA |
+| `dialogue` | host + talking cactus buddy banter (the viral "person talks to their AI" shape): pain -> proof on screens -> number reveals -> "Link in bio"; 30-40 s, a camera cut on every line |
 | `story` | true surprising story (hook, setting, escalation, snap, "Luckily/Unluckily", analogy, consequence, callback) + a one-line bridge to the product |
 Write **three hook variants** at the top of SCRIPT.md for A/B tests; voice the best one.
 
@@ -54,11 +55,27 @@ Write **three hook variants** at the top of SCRIPT.md for A/B tests; voice the b
    1080x1920, muxes, runs the **QA gate** (tools/qa.py) and only if it passes exports 9:16 + 1:1 + 16:9 and copies
    `copy.txt` (title <= 60 chars, description, sources, 3-5 hashtags, an "AI-assisted animation" note).
 
+## 3b. Dialogue ads and voices
+- Script lines are `G| ...` (host) and `C| ...` (buddy). `voice/voices.json` gives each speaker a voice profile:
+  `{"G": {"engine": "kokoro", "voice": "am_puck", "speed": 1.08, "consent": "stock voice (Kokoro-82M, Apache-2.0)"}}`.
+- **Consent is mandatory.** A cloned voice is allowed only with consent `"self"` (your own voice) or
+  `"synthetic-owned"` (an AI voice you generated and own). Never clone a creator, a public figure or anyone whose
+  video you downloaded: pick the closest stock voice instead. voice.py refuses profiles without consent.
+- `oddly voice <slug>` writes `voice/lines.json` (who speaks when). `oddly plan <slug>` turns it plus `beats.json`
+  (camera per line, top tags, screens, number reveals, buddy moods) into `plan.json`: a cut on every line.
+- The buddy (kit/buddy.ts) lip-syncs to its lines, blinks, waves and can hold a padlock; it is our own cactus, never
+  a third-party logo or a real product's mascot. The top `tag` overlay ("STEP 1 · ONE COMMAND") orients the viewer.
+
+## 3c. Funny true-fact shorts (reach)
+Absurd claim in the first second, deadpan narrator, escalation with exact sourced numbers, a "Wait. It gets
+worse." re-hook around 15 s, one visual gag per beat, a callback punchline, end card. See templates/story.
+
 ## 4. The host (kit/character.ts)
 Characters live in `kit/characters/<name>.json` (skin, hair style + colour, glasses, top + shirt, trousers, shoes,
 pin, pocket prop, build, fixed head seed). `host(out, cam, CHARACTER, pos, t, exprTimeline)` draws the same person
 every time; expression changes are hidden behind a 4-frame blink. Presets: `otto` (AI engineer, mustard cardigan,
-round glasses, cactus pin, notebook) and `maya` (designer). Never give a bystander the host's colour combination.
+round glasses, cactus pin, notebook), `guru` (AI guru for ads: messy dark hair, round glasses, stubble, charcoal
+overshirt over a cream tee, cactus pin) and `maya` (designer). Never give a bystander the host's colour combination.
 
 ## 5. Look rules (kept from the bridge renderer)
 Ink pass before lens blur; lens blur per shot (`dof`): close-ups 10-14 px, mediums 7-10, wides 0; bloom only on HDR

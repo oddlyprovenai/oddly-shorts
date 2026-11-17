@@ -8,7 +8,8 @@ import { FPS } from "./episode";
 export type Overlay =
   | { kind: "number"; from: number; to: number; before: string; after: string; label: string; note?: string }
   | { kind: "lower"; from: number; to: number; title: string; sub?: string }
-  | { kind: "end"; from: number; title: string; lines: string[]; handle?: string };
+  | { kind: "end"; from: number; title: string; lines: string[]; handle?: string }
+  | { kind: "tag"; from: number; to: number; text: string; hi?: string };
 
 const ROUND = '"OddRound", "Arial Rounded MT Bold", "Montserrat", sans-serif';
 const STROKE = { WebkitTextStroke: "12px #0E1116", paintOrder: "stroke fill" } as const;
@@ -23,7 +24,7 @@ export const Overlays: React.FC<{ items: Overlay[]; accent: string }> = ({ items
         if (o.kind === "number" && t >= o.from && t < o.to) {
           const u = ease((t - o.from) / 0.5), v = ease((t - o.from - 0.7) / 0.5), out = 1 - ease((t - o.to + 0.3) / 0.3);
           return (
-            <div key={i} style={{ position: "absolute", top: "16%", left: "8%", width: "84%", textAlign: "center", opacity: out, fontFamily: ROUND, color: "#fff" }}>
+            <div key={i} style={{ position: "absolute", top: "19%", left: "8%", width: "84%", textAlign: "center", opacity: out, fontFamily: ROUND, color: "#fff" }}>
               <div style={{ fontSize: 54, ...STROKE, opacity: u }}>{o.label}</div>
               <div style={{ fontSize: 118, fontWeight: 700, lineHeight: 1.05, transform: `scale(${0.8 + 0.2 * u})`, ...STROKE, WebkitTextStroke: "18px #0E1116" }}>
                 <span style={{ opacity: u }}>{o.before}</span>
@@ -40,6 +41,17 @@ export const Overlays: React.FC<{ items: Overlay[]; accent: string }> = ({ items
               background: "#0E1116", borderLeft: `14px solid ${accent}`, borderRadius: 18, padding: "18px 28px", fontFamily: ROUND, color: "#fff" }}>
               <div style={{ fontSize: 52, fontWeight: 700 }}>{o.title}</div>
               {o.sub && <div style={{ fontSize: 34, color: "#c9d1dc" }}>{o.sub}</div>}
+            </div>
+          );
+        }
+        if (o.kind === "tag" && t >= o.from && t < o.to) { // top pill: "STEP 2 · <hi>" (hi in the accent colour)
+          const u = ease((t - o.from) / 0.25), out = 1 - ease((t - o.to + 0.2) / 0.2);
+          return (
+            <div key={i} className="odd-tag" style={{ position: "absolute", top: "12.5%", left: 0, right: 0, display: "flex", justifyContent: "center", opacity: u * out }}>
+              <div style={{ background: "rgba(14,17,22,0.86)", borderRadius: 14, padding: "12px 24px", fontFamily: ROUND, fontSize: 40, color: "#fff", letterSpacing: 1,
+                transform: `translateY(${(1 - u) * -14}px)`, borderBottom: `6px solid ${accent}` }}>
+                {o.text}{o.hi ? <span style={{ color: accent }}> {o.hi}</span> : null}
+              </div>
             </div>
           );
         }

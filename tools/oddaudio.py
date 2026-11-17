@@ -173,7 +173,7 @@ def duck(N, words, depth=-3.0):
     return np.convolve(g, np.ones(k) / k, mode="same")
 
 
-def limiter(x, ceil_db=-1.7):
+def limiter(x, ceil_db=-2.2):
     from scipy.ndimage import minimum_filter1d, uniform_filter1d
     pk = np.max(np.abs(x), axis=0)
     need = np.minimum(1.0, dbg(ceil_db) / np.maximum(pk, 1e-9))

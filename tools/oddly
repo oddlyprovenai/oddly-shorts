@@ -3,7 +3,8 @@
 #
 #   oddly init                      copy the kit into src/videos/oddly-kit, install npm deps, Python env, voice models
 #   oddly new <slug> [format]       scaffold episodes/<slug>/ + src/videos/<slug>/ from a template
-#                                   (formats: story, demo, problem-solution, devlog, launch, benchmark)
+#                                   (formats: story, demo, dialogue, problem-solution, devlog, launch, benchmark)
+#   oddly plan <slug>               dialogue ads: build plan.json from the line timings + beats.json
 #   oddly voice <slug>              script.txt -> voice.wav (Kokoro, local) -> words.json (faster-whisper) -> captions.json
 #   oddly keyframes <Comp> <slug>   one still at every camera key (+ safe-zone guides) -> out/<slug>/keyframes.jpg
 #   oddly audio <slug>              episodes/<slug>/audio.py -> audio/mix.wav (original synthesized score + SFX)
@@ -48,8 +49,11 @@ case "$cmd" in
     slug="$1"; fmt="${2:-demo}"; T="$SKILL/templates/$fmt"; [ -d "$T" ] || { echo "unknown format $fmt (see $SKILL/templates)"; exit 2; }
     mkdir -p "episodes/$slug/voice" "src/videos/$slug"
     cp -n "$T/script.txt" "$T/say.json" "episodes/$slug/voice/" 2>/dev/null || true
+    [ -f "$T/voices.json" ] && cp -n "$T/voices.json" "episodes/$slug/voice/" || true
+    [ -f "$T/beats.json" ] && cp -n "$T/beats.json" "episodes/$slug/" || true
     cp -n "$T/audio.py" "$T/copy.txt" "$T/SCRIPT.md" "episodes/$slug/" 2>/dev/null || true
     cp -n "$T"/*.ts "$T"/*.tsx "src/videos/$slug/" 2>/dev/null || true
+    for j in captions.json lines.json; do [ -f "$T/$j" ] && cp -n "$T/$j" "src/videos/$slug/" || true; done
     [ -f "$T/plan.json" ] && cp -n "$T/plan.json" "src/videos/$slug/" || true
     echo "scaffolded episodes/$slug and src/videos/$slug from '$fmt'. Edit the script, then: oddly voice $slug" ;;
   voice)
@@ -73,6 +77,8 @@ for i, im in enumerate(ims): S.paste(im.resize((w, h)), ((i % cols) * w, (i // c
 S.save(f"{d}/keyframes.jpg", quality=85); print(f"{d}/keyframes.jpg ({len(ims)} camera keys)")
 PY
     find "$TMPDIR" -maxdepth 1 -name "remotion-webpack-bundle-*" -mmin -30 -exec rm -rf {} + ;;
+  plan)  # dialogue ads: plan.json from voice/lines.json + episodes/<slug>/beats.json
+    "$PY" "$HERE/dialogue_plan.py" "episodes/$1" "src/videos/$1" "episodes/$1/beats.json" && cp "episodes/$1/voice/lines.json" "src/videos/$1/" ;;
   audio)
     ODDLY_TOOLS="$HERE" ODDLY_PLAN="src/videos/$1/plan.json" "$PY" "episodes/$1/audio.py" ;;
   render)
