@@ -48,7 +48,8 @@ export const ReelEdit: React.FC<ReelProps> = (p) => {
       {card && (
         <AbsoluteFill style={{ background: "#0E1116", alignItems: "center", justifyContent: "center" }}>
           <div style={{ border: `3px solid ${p.accent}`, borderRadius: 28, padding: "56px 60px", width: "78%", textAlign: "center",
-            opacity: interpolate(t - card.from, [0, 0.15], [0, 1], { extrapolateRight: "clamp" }) }}>
+            opacity: interpolate(t - card.from, [0, 0.15], [0, 1], { extrapolateRight: "clamp" }),
+            transform: `scale(${interpolate(t - card.from, [0, card.dur], [0.96, 1.04])})` /* slow push: a card is never a frozen frame */ }}>
             <div style={{ fontFamily: MONO, color: p.accent, fontSize: 30, letterSpacing: 4, marginBottom: 22 }}>LAB CARD</div>
             <div style={{ fontFamily: MONO, color: "#f4f6f8", fontSize: 64, fontWeight: 700, lineHeight: 1.2 }}>{card.text}</div>
             {card.sub && <div style={{ fontFamily: MONO, color: "#9aa6b8", fontSize: 30, marginTop: 20 }}>{card.sub}</div>}

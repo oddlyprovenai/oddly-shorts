@@ -44,7 +44,13 @@ tmp = tempfile.mkdtemp(); subprocess.run(["ffmpeg", "-v", "error", "-i", vid, "-
 ocr = "\n".join(run("tesseract", f, "-", "--psm", "11").stdout for f in sorted(glob.glob(os.path.join(tmp, "*.png"))))
 hits = [m.group(0) for p in pats for m in re.finditer(p, ocr, re.I) if "oddlyprovenai" not in m.group(0).lower()]
 ok(not hits, f"PII in frames: {[h[:3] + '…' for h in hits[:5]] or 'none'}")
-nums = {re.sub(r"[^\d.]", "", n).strip(".") for n in re.findall(r"\d[\d.,]*", ocr)} - {""}
+# numbers: only high-confidence OCR tokens (texture on clothes or glasses reads as stray digits at low confidence)
+nums = set()
+for f in sorted(glob.glob(os.path.join(tmp, "*.png"))):
+    for row in run("tesseract", f, "-", "--psm", "11", "tsv").stdout.splitlines()[1:]:
+        c = row.split("\t")
+        if len(c) == 12 and c[11].strip() and float(c[10] or -1) >= 85 and re.search(r"\d", c[11]):
+            nums |= {re.sub(r"[^\d.]", "", n).strip(".") for n in re.findall(r"\d[\d.,]*", c[11])} - {""}
 bad = sorted(n for n in nums if n not in allowed and not any(n in a for a in allowed))
 ok(not bad, f"numbers on screen not in the fact list: {bad or 'none'} (seen {sorted(nums)})")
 for k, ts in enumerate((0.8, dur / 2, dur - 2.2)):
