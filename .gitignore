@@ -4,3 +4,7 @@ __pycache__/
 *.wav
 out/
 .DS_Store
+
+__pycache__/
+*.py[cod]
+.pytest_cache/

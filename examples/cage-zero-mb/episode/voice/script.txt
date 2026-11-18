@@ -1,0 +1,1 @@
+Why does your personal dashboard eat memory while it is closed? *Cage* runs on 127.0.0.1, encrypts your vault with *AES-256-GCM* and scrypt, uses roughly *23* megabytes open, and drops to *0* megabytes two minutes after you close the tab. Link in bio.

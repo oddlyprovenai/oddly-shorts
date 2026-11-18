@@ -1,0 +1,41 @@
+[
+  {
+    "words": [
+      "Why",
+      "does",
+      "your"
+    ],
+    "key": -1,
+    "start": 0.1,
+    "end": 1.1
+  },
+  {
+    "words": [
+      "dashboard",
+      "eat",
+      "RAM?"
+    ],
+    "key": 2,
+    "start": 1.1,
+    "end": 2.4
+  },
+  {
+    "words": [
+      "Cage",
+      "uses",
+      "0 MB"
+    ],
+    "key": 2,
+    "start": 2.5,
+    "end": 4.2
+  },
+  {
+    "words": [
+      "when",
+      "closed."
+    ],
+    "key": 1,
+    "start": 4.2,
+    "end": 5.4
+  }
+]

@@ -1,0 +1,50 @@
+# generated-by: gemini-ultra
+name: ci
+
+on:
+  push:
+    branches: [main, "gemini/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Verify MIT license & claude-animated-shorts attribution
+        run: |
+          test -f LICENSE
+          test -f LICENSE.claude-animated-shorts
+          grep -q "claude-animated-shorts" NOTICE.md
+          grep -q "Mr omi" NOTICE.md
+
+      - name: Shell & Node ESM syntax checks
+        run: |
+          bash -n tools/oddly tools/finish.sh edit/scripts/run_series.sh
+          for f in tools/*.mjs edit/scripts/*.mjs; do node --check "$f"; done
+
+      - name: Python unit, Veo importer, render guard & OPSEC tests
+        run: python -m unittest discover -s tests -v
+
+      - name: TypeScript strict check across kit, edit/remotion, templates & examples
+        run: |
+          npm init -y >/dev/null
+          npm install --no-save --save-exact \
+            remotion@4.0.507 @remotion/three@4.0.507 \
+            three@0.170.0 @react-three/fiber@8.17.10 @react-three/postprocessing@2.16.6 postprocessing@6.36.4 \
+            react@18.3.1 react-dom@18.3.1 \
+            @types/react@18.3.21 @types/three@0.170.0 typescript@5.7.3
+          node tools/ci_typecheck.mjs
