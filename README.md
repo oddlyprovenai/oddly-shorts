@@ -8,15 +8,17 @@ cloud, no per-video cost. Works as a Claude Code skill (`SKILL.md`) or as plain 
 Based on **[claude-animated-shorts](https://github.com/mromidev/claude-animated-shorts) by Mr omi** (MIT): its toon
 renderer and synthesized audio are the foundation. oddly-shorts adds everything below.
 
+<p align="center"><img src="docs/oddly-shorts-preview.gif" width="240" alt="oddly-shorts templates and platform safe-zone preview"></p>
+
 ## What it adds
 | | |
 |---|---|
 | **Character kit** | define a host once (`kit/characters/*.json`: hair, glasses, outfit, colours, pin, pocket prop, head shape) and get the identical character in every video; expression changes hide behind blinks. Presets: `otto` (AI engineer), `marc` (Marc, the ads host), `maya` (designer). |
 | **Tech-ad scene library** | desk with two live monitors: typing terminal (generic `lab@mac-studio ~ %` prompt, never your real user or paths), code editor, app screenshots, mock app, animated bar-chart number reveals, before/after split; product cameos on the desk. |
 | **Dialogue ads** | a host and a talking cactus buddy with lip-sync, two local voices (one profile per speaker, with a mandatory consent field: no cloning of third-party voices), a camera cut on every line built automatically from the voice timings, top step tags. |
-| **Subtitles by default** | word-synced 1-3 word cards, bold rounded type with outline, key-word highlight (`pop`) or `karaoke`, placed in the band TikTok / Shorts / Reels leave free. |
-| **Overlays** | big before -> after number reveals, lower thirds, end card with your call to action. |
-| **Ad formats** | `demo`, `problem-solution`, `devlog`, `launch`, `benchmark`, `story`: script skeletons, three hook variants for A/B, plan-driven scenes (edit `plan.json`, not code). |
+| **Subtitles by default** | word-synced 1-3 word cards, bold rounded type with outline, key-word highlight (`pop`) or `karaoke`, with per-platform safe-zone presets (`tiktok`, `youtube-shorts`, `reels`, `x`, `universal` in `kit/safezones.tsx`). |
+| **Overlays & 2D cards** | big before -> after number reveals, lower thirds, end card with your call to action, plus standalone or composable `ReceiptCard`, `SplitBenchmark`, `DiagramExplain` and `NewsReaction` components (`kit/Templates.tsx`). |
+| **Ad & receipt formats** | `demo`, `problem-solution`, `devlog`, `launch`, `benchmark`, `dialogue`, `story`, `receipt-card`, `split-benchmark`, `diagram-explain`, `news-reaction`: script skeletons, three hook variants for A/B, plan-driven scenes (edit `plan.json`, not code). |
 | **One command per step** | `oddly new / voice / keyframes / audio / render`: script -> Kokoro voice (local) -> faster-whisper word timing -> captions -> scenes -> original score + SFX mix -> render -> QA -> exports 9:16, 1:1, 16:9 + title / caption / hashtags. |
 | **QA gate** | specs, duration, loudness (-14 LUFS, true peak <= -1 dBTP), black / frozen frames, subtitle sync and coverage, and a PII scan of every text file and (with tesseract) OCR of the frames: fails on `/Users/`, `/home/`, e-mails, API-key shapes, your user / host name or git identity. |
 | **Keyframe check** | one still per camera key with safe-zone guides, so no character ends up outside a 9:16 frame. |

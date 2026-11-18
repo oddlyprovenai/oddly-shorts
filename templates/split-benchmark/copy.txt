@@ -1,0 +1,8 @@
+16 GB CPU laptop vs Apple M4 Max: honest local AI speed
+
+6.2 tok/s on 16 GB CPU-only (first token 52 s at 1K; 5.1 tok/s and 13 min at 8K) vs 82 tok/s on Apple M4 Max (3.6 GiB RSS). Link in @oddlyprovenai bio.
+
+Sources: https://github.com/oddlyprovenai/spike (README.md)
+AI-assisted animation: synthesized voice, music and sound effects. Label as altered/synthetic when uploading.
+
+#localllama #applesilicon #benchmarks #opensource

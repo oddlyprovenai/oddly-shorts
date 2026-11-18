@@ -1,0 +1,63 @@
+{
+  "total": 28.0,
+  "accent": "#88D445",
+  "platform": "youtube-shorts",
+  "subStyle": "pop",
+  "question": "How fast does Qwen3.5-4B (Q4_K_M) run locally without cloud GPUs?",
+  "maxBarValue": 90,
+  "topSide": {
+    "tag": "HARDWARE A \u00b7 NO GPU",
+    "name": "16 GB Laptop (CPU only)",
+    "spec": "1K prompt \u00b7 first token 52 s (8K: 5.1 tok/s, 13 min)",
+    "metricValue": 6.2,
+    "metricText": "6.2 tok/s",
+    "secondaryText": "Usable for short local prompts; 8K context is slow on CPU.",
+    "color": "#3B82F6",
+    "revealAt": 2.2
+  },
+  "bottomSide": {
+    "tag": "HARDWARE B \u00b7 APPLE SILICON",
+    "name": "Apple M4 Max",
+    "spec": "1K prompt \u00b7 3.6 GiB RSS (8K: 80 tok/s)",
+    "metricValue": 82.0,
+    "metricText": "82 tok/s",
+    "secondaryText": "Holds 80 tok/s at 8K prompt within 3.6 GiB RSS.",
+    "color": "#88D445",
+    "revealAt": 9.5
+  },
+  "gateNote": {
+    "at": 17.5,
+    "text": "Honest limit: 16 GB CPU-only waits 52 s for first token at 1K and 13 min at 8K."
+  },
+  "source": "github.com/oddlyprovenai/spike \u00b7 README.md (verified 2026-11-16)",
+  "segments": [
+    {
+      "from": 0.0
+    },
+    {
+      "from": 2.2
+    },
+    {
+      "from": 9.5
+    },
+    {
+      "from": 17.5
+    },
+    {
+      "from": 24.5
+    }
+  ],
+  "screens": [],
+  "overlays": [
+    {
+      "kind": "end",
+      "from": 24.5,
+      "title": "SPIKE",
+      "lines": [
+        "Measured on both 16 GB CPU and Apple Silicon",
+        "Open source \u00b7 Apache-2.0"
+      ],
+      "handle": "Link in @oddlyprovenai bio"
+    }
+  ]
+}

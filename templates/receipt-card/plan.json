@@ -1,0 +1,82 @@
+{
+  "total": 28.0,
+  "accent": "#88D445",
+  "platform": "tiktok",
+  "subStyle": "pop",
+  "headerTag": "ODDLY PROVEN LAB \u00b7 VERIFIED RECEIPT",
+  "title": "SPIKE Router & Gate Audit",
+  "subtitle": "13 specialists sharing one Qwen3.5-4B base (~42 MB per adapter)",
+  "rows": [
+    {
+      "at": 2.4,
+      "label": "Router blind holdout",
+      "value": "116 / 130 (0.89)",
+      "note": "95% CI 0.83-0.93 \u00b7 prompts written blind",
+      "status": "pass"
+    },
+    {
+      "at": 8.0,
+      "label": "Medicine v1 adapter",
+      "value": "-7.6 pts gen.",
+      "note": "Rejected by our own general-knowledge gate",
+      "status": "fail"
+    },
+    {
+      "at": 13.5,
+      "label": "Medicine v2 adapter",
+      "value": "ACCEPTED",
+      "note": "General knowledge -0.62 pts (limit -1.5)",
+      "status": "pass"
+    },
+    {
+      "at": 18.2,
+      "label": "Finance adapters (r1 & r2)",
+      "value": "NOT ACCEPTED",
+      "note": "Rejected by gate \u00b7 still in progress",
+      "status": "fail"
+    }
+  ],
+  "stamp": {
+    "at": 14.2,
+    "text": "1 OF 13 ACCEPTED",
+    "ok": true
+  },
+  "caveat": {
+    "at": 20.5,
+    "text": "Base MedMCQA had 409/1,000 unparsed answers; base rescoring is tracked openly in STATUS.md."
+  },
+  "source": "github.com/oddlyprovenai/spike \u00b7 docs/STATUS.md (2026-11-16)",
+  "segments": [
+    {
+      "from": 0.0
+    },
+    {
+      "from": 2.4
+    },
+    {
+      "from": 8.0
+    },
+    {
+      "from": 13.5
+    },
+    {
+      "from": 20.5
+    },
+    {
+      "from": 24.8
+    }
+  ],
+  "screens": [],
+  "overlays": [
+    {
+      "kind": "end",
+      "from": 24.8,
+      "title": "Oddly Proven Lab",
+      "lines": [
+        "Every failure published next to the wins",
+        "Made with free open-source oddly-shorts"
+      ],
+      "handle": "Link in @oddlyprovenai bio"
+    }
+  ]
+}

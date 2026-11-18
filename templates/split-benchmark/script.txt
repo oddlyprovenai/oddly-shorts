@@ -1,0 +1,1 @@
+What does local AI *actually* feel like on two real machines? On a *16* gigabyte CPU-only laptop, SPIKE runs at *6.2* tok/s at a 1K prompt, with a 52 second wait for the first token. On an Apple *M4* Max, it hits *82* tok/s in 3.6 GiB of memory. Both numbers are in our README. Link in bio.

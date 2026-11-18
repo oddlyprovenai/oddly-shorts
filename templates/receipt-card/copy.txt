@@ -1,0 +1,8 @@
+Our AI lab receipt: 116/130 blind router & gate audit
+
+Every specialist adapter in SPIKE has to pass a general-knowledge gate before we ship it. Only 1 of 13 has passed so far. Link in @oddlyprovenai bio.
+
+Sources: https://github.com/oddlyprovenai/spike (README.md, docs/STATUS.md)
+AI-assisted animation: synthesized voice, music and sound effects. Label as altered/synthetic when uploading.
+
+#localai #opensource #machinelearning #benchmarks

@@ -12,9 +12,19 @@ import { faceAt, toScreen, maxZoomFor, place, Face, Rect, W, H } from "./anchors
 import { KINDS, OverlayBody, Ov } from "./overlays";
 import { Motion } from "./fx";
 
+export type ReelPlatform = "universal" | "tiktok" | "youtube-shorts" | "reels" | "instagram-reels" | "x";
+const REEL_ZONES: Record<Exclude<ReelPlatform, "instagram-reels">, { leftPct: number; widthPct: number; maxCapBottomPct: number }> = {
+  universal: { leftPct: 8, widthPct: 76, maxCapBottomPct: 75 },
+  tiktok: { leftPct: 7, widthPct: 76, maxCapBottomPct: 74 },
+  "youtube-shorts": { leftPct: 8, widthPct: 77, maxCapBottomPct: 76 },
+  reels: { leftPct: 8, widthPct: 76, maxCapBottomPct: 73 },
+  x: { leftPct: 8, widthPct: 84, maxCapBottomPct: 83 },
+};
+
 export type ReelCaption = { words: string[]; key: number; start: number; end: number };
 export type ReelProps = {
   video: string; audio: string; fps: number; duration: number; voiceEnd: number; accent: string;
+  platform?: ReelPlatform;
   clips: { start: number; end: number; zoom: number; ox: number; oy: number }[];
   punch: number[];                               // edit-time seconds where the punch-in toggles
   captions: ReelCaption[];
@@ -45,11 +55,13 @@ export const ReelEdit: React.FC<ReelProps> = (p) => {
   const z = Math.min(clip.zoom * ease, zcap);
   const face: Rect = fz ? toScreen(fz, z, clip.ox, clip.oy) : { x: W * 0.25, y: H * 0.2, w: W * 0.5, h: H * 0.3 };
   const live = (p.overlays ?? []).filter((o) => t >= o.from && t < o.from + o.dur);
+  const zone = REEL_ZONES[p.platform === "instagram-reels" ? "reels" : (p.platform ?? "universal")] ?? REEL_ZONES.universal;
   const capH = H * 0.13, chestOn = live.some((o) => o.anchor === "chest");
-  // captions under the chin; while a chest card is up they move above the head (over the hair, never the face)
-  const capTop = chestOn ? Math.max(H * 0.05, face.y - 30 - capH) : Math.min(Math.max(face.y + face.h + 8, H * 0.56), H * 0.66);
+  // captions under the chin within platform safe zone; while a chest card is up they move above the head (over the hair, never the face)
+  const maxCapTop = H * (zone.maxCapBottomPct / 100) - capH;
+  const capTop = chestOn ? Math.max(H * 0.05, face.y - 30 - capH) : Math.min(Math.max(face.y + face.h + 8, H * 0.52), maxCapTop);
   const hookOn = !!p.hook && t < p.hook.until;
-  const obstacles: Rect[] = [{ x: W * 0.06, y: capTop, w: W * 0.88, h: capH }];
+  const obstacles: Rect[] = [{ x: W * (zone.leftPct / 100), y: capTop, w: W * (zone.widthPct / 100), h: capH }];
   if (hookOn) obstacles.push({ x: W * 0.06, y: H * 0.07, w: W * 0.88, h: H * 0.15 });
   if (t < 3) obstacles.push({ x: W * 0.6, y: H * 0.04, w: W * 0.38, h: 80 });
   const card = p.cards.find((c) => t >= c.from && t < c.from + c.dur);
@@ -96,7 +108,7 @@ export const ReelEdit: React.FC<ReelProps> = (p) => {
           fontFamily: SANS, fontWeight: 700, fontSize: 26, padding: "8px 16px", borderRadius: 999 }}>AI-generated</div>
       )}
       {cap && !card && !ending && (
-        <div style={{ position: "absolute", top: capTop, height: capH, left: "6%", width: "88%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "absolute", top: capTop, height: capH, left: `${zone.leftPct}%`, width: `${zone.widthPct}%`, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <div style={{ fontFamily: SANS, fontWeight: 900, fontSize: cap.words.join(" ").length > 12 ? 96 : 116, color: "#fff", textTransform: "uppercase",
             WebkitTextStroke: "16px #0E1116", paintOrder: "stroke fill", textAlign: "center", letterSpacing: 1,
             transform: `scale(${interpolate(f - Math.round(cap.start * p.fps), [0, 3], [0.9, 1], { extrapolateRight: "clamp" })})` }}>

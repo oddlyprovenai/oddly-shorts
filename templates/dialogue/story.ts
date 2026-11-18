@@ -12,6 +12,7 @@ import lines from "./lines.json";
 import { Expr } from "../oddly-kit/toon";
 import { CharacterSpec } from "../oddly-kit/character";
 import { Overlay } from "../oddly-kit/Overlays";
+import { PlatformPreset } from "../oddly-kit/safezones";
 import MARC from "../oddly-kit/characters/marc.json";
 import plan from "./plan.json";
 import captions from "./captions.json";
@@ -20,7 +21,7 @@ type Cam = "host" | "medium" | "screen" | "side" | "wide" | "over" | "two" | "bu
 type ScreenItem = { from: number; to: number; screen: "main" | "side"; kind: "terminal" | "code" | "shot" | "mock" | "bars" | "split";
   lines?: string[]; cps?: number; hl?: number; image?: string; title?: string; items?: { label: string; value: number; color: string }[]; unit?: string; max?: number };
 type Plan = { total: number; accent: string; cameo: "cactus" | "padlock" | "none"; segments: { from: number; cam: Cam; light?: "day" | "golden" }[];
-  expr: [number, Expr][]; screens: ScreenItem[]; buddy?: { mood?: [number, "happy" | "proud" | "worried" | "wink"][]; prop?: "lock" | null; wave?: number[] }; overlays: Overlay[]; images?: Record<string, string>; flashAt?: number; subStyle?: "pop" | "karaoke" };
+  expr: [number, Expr][]; screens: ScreenItem[]; buddy?: { mood?: [number, "happy" | "proud" | "worried" | "wink"][]; prop?: "lock" | null; wave?: number[] }; overlays: Overlay[]; images?: Record<string, string>; flashAt?: number; subStyle?: "pop" | "karaoke"; platform?: PlatformPreset };
 const P = plan as unknown as Plan;
 const HOST = MARC as CharacterSpec;
 const FPS = 30, TOTAL = Math.round(P.total * FPS);
@@ -86,5 +87,5 @@ const stage = (_id: number, t: number, cam: CamInfo) => {
 export const EPISODE: Episode = {
   id: "ad", total: TOTAL, flashAt: Math.round((P.flashAt ?? -1) * FPS), shots: SHOTS, xfade: {}, cams: CAMS, kicks: [], dof: DOF,
   looks: { desk: { inside: true } }, build, pose, stage, captions, accent: P.accent,
-  subStyle: P.subStyle ?? "pop", overlays: P.overlays, images: P.images,
+  subStyle: P.subStyle ?? "pop", platform: P.platform, overlays: P.overlays, images: P.images,
 };

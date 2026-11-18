@@ -1,0 +1,1 @@
+Everyone pitches autonomous AI trading bots, so we tested *42* variants inside Cage with a strict walk-forward split. Counting every trial, our best deflated Sharpe was *0.20*, returning *-0.3%* out of sample while buy-and-hold made *+11.4%*. So real money stays *locked* off. Link in bio.
