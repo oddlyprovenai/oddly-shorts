@@ -1,0 +1,15 @@
+{
+  "id": "OP-2026-002-router-body",
+  "archivo": "lib_marc_point_02.mp4",
+  "herramienta": "flow-veo",
+  "modelo": "veo-3",
+  "prompt": "Medium vertical 9:16 studio shot of Marc gesturing slightly toward his right shoulder where a floating graphic will sit in post, warm lab desk background without laptop logos or readable screens.",
+  "semilla": 420102,
+  "duracion": 7.0,
+  "formato": "9:16",
+  "personaje": "marc",
+  "voz": "am_puck",
+  "etiqueta_ia": true,
+  "uso_previsto": "Lab Receipts: 13 specialists, 1 adapter accepted so far",
+  "licencia_audio": "synthetic-original"
+}

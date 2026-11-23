@@ -9,16 +9,17 @@
 #   oddly voice <slug>              script.txt -> voice.wav (Kokoro, local) -> words.json (faster-whisper) -> captions.json
 #   oddly keyframes <Comp> <slug>   one still at every camera key (+ safe-zone guides) -> out/<slug>/keyframes.jpg
 #   oddly audio <slug>              episodes/<slug>/audio.py -> audio/mix.wav (original synthesized score + SFX)
+#   oddly import-veo <src> <out>    validate C03 Veo/Flow OP-*.json sidecars -> manifest.json, series.json, hooks.json, copy.txt
 #   oddly render <Comp> <slug> "<NN - Title>" [outdir]
 #                                   render 1080x1920 -> mux -> QA gate -> exports 9:16, 1:1, 16:9 + copy.txt -> outdir
 #
-# Environment: ODDLY_CONCURRENCY (default 2; 1 = low-RAM mode), ODDLY_MIN_FREE_GB (default 4), ODDLY_LUFS (-14),
+# Environment: ODDLY_CONCURRENCY (auto: 1 on <=16 GB RAM, else 2), ODDLY_MIN_FREE_GB (default 4), ODDLY_LUFS (-14),
 #              ODDLY_VOICE (am_michael), ODDLY_SPEED (1.02), ODDLY_TEMPO (1.1), ODDLY_PY (python with the deps)
 set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; SKILL="$(dirname "$HERE")"
 PY="${ODDLY_PY:-$PWD/.venv/bin/python}"; [ -x "$PY" ] || PY=python3
 export TMPDIR="${ODDLY_TMP:-$HOME/remotion-tmp}"; mkdir -p "$TMPDIR"
-CONC="${ODDLY_CONCURRENCY:-2}"; MINFREE="${ODDLY_MIN_FREE_GB:-4}"
+CONC="${ODDLY_CONCURRENCY:-$("$PY" "$HERE/render_guard.py" concurrency)}"; MINFREE="${ODDLY_MIN_FREE_GB:-4}"
 free_gb() {
   if [ "$(uname)" = Darwin ]; then vm_stat | awk '/page size/{ps=$8} /Pages free/{f=$3} /Pages inactive/{i=$3} END{printf "%d", (f+i)*ps/1073741824}'
   else awk '/MemAvailable/{printf "%d", $2/1048576}' /proc/meminfo; fi
@@ -66,9 +67,9 @@ case "$cmd" in
     else
       frames=$(grep -hoE "(hold|cutTo|glideTo|track|follow)\(([0-9]+)|\{ f: ([0-9]+)" src/videos/$slug/*.ts | grep -oE "[0-9]+$" | sort -n | uniq | awk '{printf "%s%d", (NR>1?",":""), $1+5}')
     fi
-    wait_resources
-    mkdir -p scripts && cp "$HERE/bridge-stills.mjs" scripts/oddly-stills.mjs  # node resolves @remotion/* from the project
-    BRIDGE_COMP="$comp" ODDLY_GUIDES=1 keep_awake node scripts/oddly-stills.mjs "out/$slug/k_" "$frames" 0.5
+      wait_resources
+      mkdir -p scripts && cp "$HERE/bridge-stills.mjs" scripts/oddly-stills.mjs  # node resolves @remotion/* from the project
+      BRIDGE_COMP="$comp" ODDLY_GUIDES=1 "$PY" "$HERE/render_guard.py" exec --min-free-gb "$MINFREE" -- node scripts/oddly-stills.mjs "out/$slug/k_" "$frames" 0.5
     "$PY" - "out/$slug" "$frames" <<'PY'
 import sys, PIL.Image as I
 d, fr = sys.argv[1], sys.argv[2].split(",")
@@ -82,10 +83,13 @@ PY
     "$PY" "$HERE/dialogue_plan.py" "episodes/$1" "src/videos/$1" "episodes/$1/beats.json" && cp "episodes/$1/voice/lines.json" "src/videos/$1/" ;;
   audio)
     ODDLY_TOOLS="$HERE" ODDLY_PLAN="src/videos/$1/plan.json" "$PY" "episodes/$1/audio.py" ;;
+  import-veo)
+    src="$1"; outdir="$2"; shift 2 || true
+    "$PY" "$HERE/veo_import.py" "$src" --out "$outdir" "$@" ;;
   render)
     comp="$1"; slug="$2"; name="$3"; dest="${4:-out/$slug/export}"; out="out/$slug"; mkdir -p "$out" "$dest"
     wait_resources; touch "$out/.start"
-    keep_awake nice -n 5 npx remotion render src/index.ts "$comp" "$out/video.mp4" --codec h264 --crf 18 --concurrency="$CONC" --gl=angle --timeout=180000 --log=error
+    keep_awake "$PY" "$HERE/render_guard.py" exec --min-free-gb "$MINFREE" -- nice -n 5 npx remotion render src/index.ts "$comp" "$out/video.mp4" --codec h264 --crf 18 --concurrency="$CONC" --gl=angle --timeout=180000 --log=error
     ffmpeg -v error -y -i "$out/video.mp4" -i "episodes/$slug/audio/mix.wav" -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 256k -ar 48000 -shortest -movflags +faststart "$out/final.mp4"
     find "$TMPDIR" -maxdepth 1 -name "remotion-webpack-bundle-*" -newer "$out/.start" -exec rm -rf {} +
     set +e; "$PY" "$HERE/qa.py" "$out/final.mp4" "episodes/$slug" "src/videos/$slug" --lufs "${ODDLY_LUFS:--14}"; qa=$?; set -e

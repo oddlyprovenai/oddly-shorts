@@ -1,0 +1,44 @@
+{
+  "id": "OP-2026-001-router-hook",
+  "archivo": "lib_marc_explain_01.mp4",
+  "herramienta": "flow-veo",
+  "modelo": "veo-3",
+  "prompt": "Medium vertical 9:16 studio shot of Marc (messy dark hair, round glasses, charcoal overshirt over cream tee, small green cactus pin) speaking calmly to camera in a warm minimalist lab with soft key light, no text, no brand logos.",
+  "semilla": 420101,
+  "duracion": 6.5,
+  "formato": "9:16",
+  "personaje": "marc",
+  "voz": "am_puck",
+  "etiqueta_ia": "AI-generated (YouTube: altered or synthetic \u00b7 TikTok: AI-generated)",
+  "uso_previsto": "Lab Receipts: 116/130 blind router holdout",
+  "licencia_audio": "synthetic-original",
+  "hook_end_word": "blind.",
+  "hooks": [
+    "116/130 blind: our local AI router",
+    "Why we threw away our first router score",
+    "How to test a specialist router honestly"
+  ],
+  "overlays": [
+    {
+      "kind": "receipt",
+      "at_word": "blind",
+      "dur": 4.2,
+      "anchor": "rshoulder",
+      "d": {
+        "title": "Router \u00b7 Blind Holdout",
+        "lines": [
+          {
+            "text": "116 / 130 (0.89)",
+            "at": 0.2,
+            "ok": true
+          },
+          {
+            "text": "95% CI 0.83-0.93",
+            "at": 0.9,
+            "ok": true
+          }
+        ]
+      }
+    }
+  ]
+}

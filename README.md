@@ -24,7 +24,8 @@ renderer and synthesized audio are the foundation. oddly-shorts adds everything 
 | **Keyframe check** | one still per camera key with safe-zone guides, so no character ends up outside a 9:16 frame. |
 | **Reel editor** (`edit/`) | turns talking-head recordings or AI clips into reels without cutting voice: energy-safe pause removal + cut report, transcript diff after every step, phone-voice chain to -14 LUFS, word-by-word captions, punch-ins, face-tracked overlays (local Apple Vision) that pop above the head or beside a shoulder while the speaker talks (bars, RAM meter + padlock, printing receipt, stamps, chips), storyboard with real frames, 7 hook variants, QA with OCR PII scan. |
 | **Anchored overlays (3D)** | the same overlay library for the 3D host: the head is projected through the shot camera every frame (`kit/Anchored.tsx`), so graphics follow camera moves and never cover the face. |
-| **Low-RAM mode** | one render at a time, waits for free memory (`ODDLY_MIN_FREE_GB`), `ODDLY_CONCURRENCY=1` for 16 GB machines; macOS and Linux. |
+| **Veo / Flow sidecar importer** | `oddly import-veo <sidecar-or-dir> <work-dir>` (`tools/veo_import.py`): validates Studio `OP-*.json` / `lib_*.json` clip metadata, enforces mandatory synthetic AI disclosure, voice/audio licence rules and OPSEC/PII checks, and writes `manifest.json`, `series.json`, `hooks.json` and `copy.txt` for `edit/`. |
+| **Low-RAM render guard** | atomic sequential lock (`$TMPDIR/oddly-render.lock` with stale-PID recovery in `tools/render_guard.py` and `edit/scripts/render_guard.mjs`), waits for free memory (`ODDLY_MIN_FREE_GB`, default 4 GB), auto-caps `CONCURRENCY=1` on <= 16 GB machines, and cleans temporary webpack bundles on exit; macOS and Linux. |
 
 ## Quick start
 ```bash
@@ -43,8 +44,10 @@ Node 18+, Python 3.10+, ffmpeg; optional tesseract. 16 GB RAM works (low-RAM mod
 minutes on Apple silicon. Remotion has its own licence (free for individuals and small teams; see remotion.dev/license).
 
 ## Examples
-`examples/vasa` (a true-story short: a warship that failed its stability test) and `examples/clever-hans` (the horse
-that "could count"): complete scripts, scenes and sound. They contain no third-party images.
+`examples/vasa` (a true-story short: a warship that failed its stability test), `examples/clever-hans` (the horse
+that "could count"), `examples/cage-zero-mb` (a PII-free product demo short for Cage), and `examples/veo-marc-receipt`
+(C03 `OP-*.json` Veo sidecars imported into a validated `reel-edit` workspace). They contain no personal data and no
+third-party images.
 
 ## Licence
 MIT (see `LICENSE`, `LICENSE.claude-animated-shorts`, `NOTICE.md`). Not included: the original skill's private

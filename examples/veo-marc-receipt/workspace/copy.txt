@@ -1,0 +1,10 @@
+OP-2026-001: Lab Receipts: 116/130 blind router holdout
+
+Measured in public by Oddly Proven Lab. Link in @oddlyprovenai bio.
+
+Mandatory AI Disclosure Checklist:
+- YouTube Studio: Altered or synthetic content = YES
+- TikTok: Turn ON 'AI-generated content' toggle
+- Generator: flow-veo (veo-3), local voice/music mix via oddly-shorts
+
+#localai #opensource #oddlyproven

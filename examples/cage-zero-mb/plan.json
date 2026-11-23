@@ -1,0 +1,92 @@
+{
+  "total": 30.0,
+  "accent": "#F0592A",
+  "cameo": "padlock",
+  "subStyle": "pop",
+  "segments": [
+    {
+      "from": 0.0,
+      "cam": "host"
+    },
+    {
+      "from": 5.0,
+      "cam": "screen"
+    },
+    {
+      "from": 13.0,
+      "cam": "over"
+    },
+    {
+      "from": 20.0,
+      "cam": "host"
+    },
+    {
+      "from": 26.0,
+      "cam": "wide"
+    }
+  ],
+  "expr": [
+    [
+      0,
+      "smile"
+    ],
+    [
+      5.0,
+      "grin"
+    ],
+    [
+      20.0,
+      "smile"
+    ]
+  ],
+  "screens": [
+    {
+      "from": 0.0,
+      "to": 13.0,
+      "screen": "main",
+      "kind": "terminal",
+      "cps": 28,
+      "lines": [
+        "$ git clone https://github.com/oddlyprovenai/cage.git",
+        "$ cd cage && ./install.sh",
+        "# 127.0.0.1:8787 \u00b7 AES-256-GCM + scrypt",
+        "# 0 MB closed \u00b7 ~23 MB open"
+      ]
+    },
+    {
+      "from": 13.0,
+      "to": 30.0,
+      "screen": "main",
+      "kind": "mock",
+      "title": "Cage \u00b7 Demo Workspace"
+    }
+  ],
+  "overlays": [
+    {
+      "kind": "lower",
+      "from": 0.4,
+      "to": 4.5,
+      "title": "Cage",
+      "sub": "local Life OS on macOS"
+    },
+    {
+      "kind": "number",
+      "from": 13.4,
+      "to": 19.5,
+      "before": "~23 MB",
+      "after": "0 MB",
+      "label": "RAM when you close the tab",
+      "note": "shuts down after 2 min idle"
+    },
+    {
+      "kind": "end",
+      "from": 26.2,
+      "title": "Cage",
+      "lines": [
+        "Apache-2.0 \u00b7 127.0.0.1 only",
+        "Paper trading stays locked off"
+      ],
+      "handle": "Link in @oddlyprovenai bio"
+    }
+  ]
+}

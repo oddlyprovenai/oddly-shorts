@@ -1,0 +1,8 @@
+A personal dashboard that drops to 0 MB when closed
+
+Cage runs on 127.0.0.1 only, encrypts ~/.cage with AES-256-GCM + scrypt, uses ~20 MB locked / ~23 MB open, and exits to 0 MB when idle. Link in @oddlyprovenai bio.
+
+Sources: https://github.com/oddlyprovenai/cage
+AI-assisted animation: synthesized voice, music and sound effects.
+
+#macos #privacy #selfhosted #opensource

@@ -1,0 +1,48 @@
+{
+  "id": "OP-2026-001",
+  "accent": "#3B82F6",
+  "platform": "tiktok",
+  "frames": [
+    {
+      "zoom": 1.08,
+      "ox": 0.5,
+      "oy": 0.35
+    },
+    {
+      "zoom": 1.08,
+      "ox": 0.5,
+      "oy": 0.35
+    }
+  ],
+  "cards": [],
+  "overlays": [
+    {
+      "kind": "receipt",
+      "at_word": "blind",
+      "dur": 4.2,
+      "anchor": "rshoulder",
+      "d": {
+        "title": "Router \u00b7 Blind Holdout",
+        "lines": [
+          {
+            "text": "116 / 130 (0.89)",
+            "at": 0.2,
+            "ok": true
+          },
+          {
+            "text": "95% CI 0.83-0.93",
+            "at": 0.9,
+            "ok": true
+          }
+        ]
+      }
+    }
+  ],
+  "hook_end_word": "blind.",
+  "end": {
+    "title": "Oddly Proven Lab",
+    "line": "Link in @oddlyprovenai bio"
+  },
+  "bed_db": -24,
+  "ai_disclosure": true
+}
