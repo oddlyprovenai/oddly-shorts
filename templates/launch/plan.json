@@ -128,29 +128,21 @@
    "cps": 34,
    "lines": [
     "# medicine adapter, round 1",
-    "# medicine  +31.9 pts",
-    "# general    -7.6 pts",
-    "# REJECTED by our own test"
+    "# general knowledge  -7.6 pts",
+    "# limit -1.5 -> REJECTED by its own gate"
    ]
   },
   {
    "from": 27.3,
    "to": 37.05,
    "screen": "main",
-   "kind": "bars",
-   "unit": "%",
-   "max": 80,
-   "items": [
-    {
-     "label": "base model",
-     "value": 31.9,
-     "color": "#8a8f99"
-    },
-    {
-     "label": "SPIKE medicine",
-     "value": 67.0,
-     "color": "#88D445"
-    }
+   "kind": "terminal",
+   "cps": 34,
+   "lines": [
+    "# medicine adapter, round 2",
+    "# same gate, written before training",
+    "# general knowledge  -0.62 pts",
+    "# limit -1.5 -> PASSED"
    ]
   },
   {
@@ -197,27 +189,25 @@
    "label": "router, blind test"
   },
   {
-   "kind": "number",
+   "kind": "lower",
    "from": 27.6,
    "to": 36.8,
-   "before": "31.9%",
-   "after": "67.0%",
-   "label": "2,318 medical questions",
-   "note": "general knowledge: -0.62 pts"
+   "title": "Round 2: passed its gate",
+   "sub": "general knowledge -0.62 pts (limit -1.5)"
   },
   {
    "kind": "lower",
    "from": 37.3,
    "to": 41.6,
    "title": "6.2 tok/s",
-   "sub": "16 GB laptop \u00b7 CPU only \u00b7 1K prompt"
+   "sub": "16 GB laptop · CPU only · 1K prompt"
   },
   {
    "kind": "end",
    "from": 52.6,
    "title": "SPIKE",
    "lines": [
-    "Open source \u00b7 runs on 16 GB",
+    "Open source · runs on 16 GB",
     "This video: made with our free skill oddly-shorts"
    ],
    "handle": "Link in @oddlyprovenai bio"

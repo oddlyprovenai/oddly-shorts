@@ -33,7 +33,7 @@ for cd in series.get("cards", []):
     hit = next((c for c in caps if any(clean(w) == clean(key) for w in c["words"])), None)
     if hit: cards.append({"from": round(hit["start"] if cd.get("at_word") else hit["end"], 3), "dur": 1.5, "text": cd["text"], **({"sub": cd["sub"]} if cd.get("sub") else {})})
 # overlays (v2): appear while the host talks, anchored to the face track. series.json "overlays":
-#   [{"kind": "bar", "at_word": "from", "dur": 3.2, "anchor": "rshoulder", "d": {..., "afterAt": "67%", "items": [{"at": "money,"}]}}]
+#   [{"kind": "bar", "at_word": "from", "dur": 3.2, "anchor": "rshoulder", "d": {..., "afterAt": "Max", "items": [{"at": "money,"}]}}]
 # Word references ("word" or "word#2" for the 2nd occurrence) anywhere in d under a key "at" or ending in "At" become
 # seconds relative to the overlay start (searched from the overlay start on).
 words = []

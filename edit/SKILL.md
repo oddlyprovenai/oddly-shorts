@@ -19,7 +19,7 @@ with faster-whisper, numpy, scipy, pillow (`REEL_PY`, default `.venv/bin/python`
   variants ("one" vs "ones") are listed, never counted as passes when a word is really gone.
 - **No music or colour filters** unless the user asks. (An original synthesized bed is available when a brief asks for music.)
 - **Illustrate, don't repeat.** No full-screen cutaways that hide the speaker. Graphics appear *while* they keep
-  talking, above the head or beside a shoulder, and show the idea (a bar growing from 31.9 to 67.0, a padlock clicking
+  talking, above the head or beside a shoulder, and show the idea (a padlock clicking
   shut as RAM drops to 0, a receipt printing ticks), never the sentence as text. Never over the face or mouth, never in
   the bottom 20 %, never under the captions. Only real numbers from the facts file, and never "rolled" through
   intermediate values (OCR and viewers would read numbers that are not true).
@@ -53,9 +53,9 @@ chin), the captions, the hook text, the AI tag or the bottom 20 %. The anchor ch
 Entry is a spring pop, exit a 0.25 s shrink-fade, with a 2 px float while on screen.
 
 ```json
-{"kind": "bar", "at_word": "from", "dur": 4.0, "anchor": "chest",
- "d": {"title": "Medicine · 2,318 questions", "before": 31.9, "after": 67.0, "beforeText": "31.9%", "afterText": "67.0%",
-       "beforeCap": "base", "afterCap": "adapter", "afterAt": "to", "pill": "general knowledge −0.62", "pillAt": "general"}}
+{"kind": "bar", "at_word": "single", "dur": 4.0, "anchor": "chest",
+ "d": {"title": "Speed · 1K-token prompt", "before": 6.2, "after": 82, "beforeText": "6.2 tok/s", "afterText": "82 tok/s",
+       "beforeCap": "16 GB CPU", "afterCap": "M4 Max", "afterAt": "Max", "pill": "same model, same file", "pillAt": "same"}}
 ```
 Word references (`"word"` or `"word#2"`) under `at` or any key ending in `At` become seconds from the overlay start.
 
