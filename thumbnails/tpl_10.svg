@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+      <defs>
+      <pattern id="tg10" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#18202E" stroke-width="1"/>
+      </pattern>
+      <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#88D445" stop-opacity="0.20"/>
+        <stop offset="100%" stop-color="#0E1116" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="glowOrange" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#F0592A" stop-opacity="0.18"/>
+        <stop offset="100%" stop-color="#0E1116" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.18"/>
+        <stop offset="100%" stop-color="#0E1116" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+      <rect width="1280" height="720" fill="#0E1116"/>
+      <rect width="1280" height="720" fill="url(#tg10)"/>
+      <!-- Left clean empty headline zone -->
+      <g id="editable-headline-zone" data-bounds="64,68,620,584"></g>
+      <!-- Right stacked redemption cards -->
+      <g transform="translate(724, 76)">
+        <rect x="0" y="0" width="488" height="230" rx="24" fill="#1A1216" stroke="#E5484D" stroke-width="4"/>
+        <circle cx="76" cy="115" r="42" fill="#E5484D" opacity="0.2"/>
+        <path d="M 58 97 L 94 133 M 94 97 L 58 133" stroke="#E5484D" stroke-width="9" stroke-linecap="round"/>
+        <rect x="148" y="82" width="280" height="24" rx="8" fill="#E5484D"/>
+        <rect x="148" y="126" width="200" height="18" rx="6" fill="#F7F5EF" opacity="0.45"/>
+
+        <path d="M 244 244 L 244 286" stroke="#F7F5EF" stroke-width="6" stroke-linecap="round"/>
+        <polygon points="228,282 244,306 260,282" fill="#88D445"/>
+
+        <rect x="0" y="318" width="488" height="230" rx="24" fill="#111E17" stroke="#88D445" stroke-width="4"/>
+        <circle cx="76" cy="433" r="42" fill="#88D445" opacity="0.22"/>
+        <path d="M 56 433 L 71 448 L 98 418" fill="none" stroke="#88D445" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="148" y="400" width="290" height="24" rx="8" fill="#88D445"/>
+        <rect x="148" y="444" width="220" height="18" rx="6" fill="#F7F5EF" opacity="0.75"/>
+      </g>
+    </svg>

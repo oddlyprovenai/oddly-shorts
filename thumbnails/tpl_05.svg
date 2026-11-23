@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+      <defs>
+      <pattern id="tg5" width="44" height="44" patternUnits="userSpaceOnUse">
+        <path d="M 44 0 L 0 0 0 44" fill="none" stroke="#171F2E" stroke-width="1"/>
+      </pattern>
+      <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#88D445" stop-opacity="0.20"/>
+        <stop offset="100%" stop-color="#0E1116" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="glowOrange" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#F0592A" stop-opacity="0.18"/>
+        <stop offset="100%" stop-color="#0E1116" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.18"/>
+        <stop offset="100%" stop-color="#0E1116" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+      <rect width="1280" height="720" fill="#0E1116"/>
+      <rect width="1280" height="720" fill="url(#tg5)"/>
+      <circle cx="980" cy="340" r="320" fill="url(#glowBlue)"/>
+      <!-- Left empty headline zone -->
+      <rect x="56" y="68" width="14" height="584" rx="7" fill="#3B82F6"/>
+      <g id="editable-headline-zone" data-bounds="96,84,650,552"></g>
+      <!-- Right node architecture diagram -->
+      <g transform="translate(980, 340)">
+        <line x1="0" y1="0" x2="-130" y2="-140" stroke="#3B82F6" stroke-width="5"/>
+        <line x1="0" y1="0" x2="140" y2="-120" stroke="#88D445" stroke-width="5"/>
+        <line x1="0" y1="0" x2="-120" y2="145" stroke="#88D445" stroke-width="5"/>
+        <line x1="0" y1="0" x2="135" y2="135" stroke="#F0592A" stroke-width="5"/>
+        <circle cx="0" cy="0" r="76" fill="#141923" stroke="#88D445" stroke-width="6"/>
+        <g transform="translate(0,4) scale(0.72)">
+      <ellipse cx="0" cy="68" rx="38" ry="8" fill="#88D445" opacity="0.22"/>
+      <!-- Left arm -->
+      <path d="M -28 18 C -56 18, -62 -18, -44 -28 C -30 -34, -22 -14, -24 2 Z"
+            fill="#88D445" stroke="#08291A" stroke-width="7" stroke-linejoin="round"/>
+      <!-- Right arm -->
+      <path d="M 28 24 C 56 24, 62 -12, 44 -22 C 30 -28, 22 -8, 24 8 Z"
+            fill="#88D445" stroke="#08291A" stroke-width="7" stroke-linejoin="round"/>
+      <!-- Main body -->
+      <path d="M -24 64 L -28 -16 C -28 -48, 28 -48, 28 -16 L 24 64 Z"
+            fill="#88D445" stroke="#08291A" stroke-width="7" stroke-linejoin="round"/>
+      <!-- Highlight strip -->
+      <path d="M -16 56 L -19 -14 C -19 -34, -4 -38, -2 -36 C -10 -24, -10 20, -8 56 Z"
+            fill="#A9EC68" opacity="0.65"/>
+      <!-- Spines -->
+      <line x1="0" y1="-44" x2="0" y2="-56" stroke="#08291A" stroke-width="6" stroke-linecap="round"/>
+      <line x1="-22" y1="-32" x2="-31" y2="-40" stroke="#08291A" stroke-width="6" stroke-linecap="round"/>
+      <line x1="22" y1="-32" x2="31" y2="-40" stroke="#08291A" stroke-width="6" stroke-linecap="round"/>
+      <line x1="-54" y1="-16" x2="-63" y2="-21" stroke="#08291A" stroke-width="5.5" stroke-linecap="round"/>
+      <line x1="54" y1="-10" x2="63" y2="-15" stroke="#08291A" stroke-width="5.5" stroke-linecap="round"/>
+      <!-- Kawaii eyes & smile -->
+      <rect x="-14" y="-14" width="7" height="14" rx="3.5" fill="#08291A"/>
+      <rect x="7" y="-14" width="7" height="14" rx="3.5" fill="#08291A"/>
+      <path d="M -6 5 Q 0 12 6 5" fill="none" stroke="#08291A" stroke-width="5" stroke-linecap="round"/>
+    </g>
+        <circle cx="-130" cy="-140" r="42" fill="#141923" stroke="#3B82F6" stroke-width="4"/>
+        <circle cx="140" cy="-120" r="42" fill="#141923" stroke="#88D445" stroke-width="4"/>
+        <circle cx="-120" cy="145" r="42" fill="#141923" stroke="#88D445" stroke-width="4"/>
+        <circle cx="135" cy="135" r="42" fill="#141923" stroke="#F0592A" stroke-width="4"/>
+      </g>
+    </svg>

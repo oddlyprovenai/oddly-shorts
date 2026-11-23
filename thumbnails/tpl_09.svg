@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+      <rect width="1280" height="720" fill="#0E1116"/>
+      <!-- Top Paper Band for huge clean headline -->
+      <rect x="0" y="0" width="1280" height="270" fill="#F7F5EF"/>
+      <rect x="0" y="264" width="1280" height="8" fill="#88D445"/>
+      <g id="editable-headline-zone" data-bounds="64,36,1152,198"></g>
+      <!-- Bottom Terminal Window (right timestamp kept clear) -->
+      <g transform="translate(64, 316)">
+        <rect x="0" y="0" width="1020" height="348" rx="22" fill="#141923" stroke="#2B364B" stroke-width="3"/>
+        <circle cx="36" cy="34" r="9" fill="#E5484D"/>
+        <circle cx="66" cy="34" r="9" fill="#F0592A"/>
+        <circle cx="96" cy="34" r="9" fill="#88D445"/>
+        <line x1="0" y1="68" x2="1020" y2="68" stroke="#263145" stroke-width="2"/>
+        <rect x="40" y="108" width="220" height="22" rx="6" fill="#88D445"/>
+        <rect x="278" y="108" width="420" height="22" rx="6" fill="#F7F5EF" opacity="0.85"/>
+        <rect x="40" y="156" width="560" height="18" rx="6" fill="#3B82F6" opacity="0.65"/>
+        <rect x="40" y="200" width="480" height="18" rx="6" fill="#94A0B4" opacity="0.45"/>
+        <rect x="40" y="254" width="320" height="44" rx="10" fill="#0E1116" stroke="#88D445" stroke-width="2.5"/>
+      </g>
+    </svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+      <defs>
+      <pattern id="tg7" width="32" height="32" patternUnits="userSpaceOnUse">
+        <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#192538" stroke-width="1"/>
+      </pattern>
+      <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#88D445" stop-opacity="0.20"/>
+        <stop offset="100%" stop-color="#0E1116" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="glowOrange" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#F0592A" stop-opacity="0.18"/>
+        <stop offset="100%" stop-color="#0E1116" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.18"/>
+        <stop offset="100%" stop-color="#0E1116" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+      <rect width="1280" height="720" fill="#0E1116"/>
+      <rect width="1280" height="720" fill="url(#tg7)"/>
+      <!-- Wide clean top headline zone: x=68..1212, y=56..350 -->
+      <g id="editable-headline-zone" data-bounds="68,56,1144,294"></g>
+      <!-- Bottom 3-stage pipeline graphic (leaves 1110..1265 bottom-right clear!) -->
+      <g transform="translate(68, 410)">
+        <rect x="0" y="0" width="300" height="210" rx="22" fill="#141923" stroke="#3B82F6" stroke-width="4"/>
+        <rect x="36" y="42" width="140" height="20" rx="8" fill="#3B82F6"/>
+        <rect x="36" y="80" width="220" height="14" rx="7" fill="#28354C"/>
+        <rect x="36" y="110" width="190" height="14" rx="7" fill="#28354C"/>
+
+        <path d="M 318 105 L 368 105" stroke="#88D445" stroke-width="6" stroke-linecap="round"/>
+        <polygon points="366,91 390,105 366,119" fill="#88D445"/>
+
+        <rect x="404" y="0" width="300" height="210" rx="22" fill="#141923" stroke="#F0592A" stroke-width="4"/>
+        <rect x="440" y="42" width="160" height="20" rx="8" fill="#F0592A"/>
+        <rect x="440" y="84" width="220" height="84" rx="12" fill="#0E1116" stroke="#28354C" stroke-width="2"/>
+
+        <path d="M 722 105 L 772 105" stroke="#88D445" stroke-width="6" stroke-linecap="round"/>
+        <polygon points="770,91 794,105 770,119" fill="#88D445"/>
+
+        <rect x="808" y="0" width="290" height="210" rx="22" fill="#141923" stroke="#88D445" stroke-width="4"/>
+        <g transform="translate(953,105) scale(1.08)">
+      <ellipse cx="0" cy="68" rx="38" ry="8" fill="#88D445" opacity="0.22"/>
+      <!-- Left arm -->
+      <path d="M -28 18 C -56 18, -62 -18, -44 -28 C -30 -34, -22 -14, -24 2 Z"
+            fill="#88D445" stroke="#08291A" stroke-width="7" stroke-linejoin="round"/>
+      <!-- Right arm -->
+      <path d="M 28 24 C 56 24, 62 -12, 44 -22 C 30 -28, 22 -8, 24 8 Z"
+            fill="#88D445" stroke="#08291A" stroke-width="7" stroke-linejoin="round"/>
+      <!-- Main body -->
+      <path d="M -24 64 L -28 -16 C -28 -48, 28 -48, 28 -16 L 24 64 Z"
+            fill="#88D445" stroke="#08291A" stroke-width="7" stroke-linejoin="round"/>
+      <!-- Highlight strip -->
+      <path d="M -16 56 L -19 -14 C -19 -34, -4 -38, -2 -36 C -10 -24, -10 20, -8 56 Z"
+            fill="#A9EC68" opacity="0.65"/>
+      <!-- Spines -->
+      <line x1="0" y1="-44" x2="0" y2="-56" stroke="#08291A" stroke-width="6" stroke-linecap="round"/>
+      <line x1="-22" y1="-32" x2="-31" y2="-40" stroke="#08291A" stroke-width="6" stroke-linecap="round"/>
+      <line x1="22" y1="-32" x2="31" y2="-40" stroke="#08291A" stroke-width="6" stroke-linecap="round"/>
+      <line x1="-54" y1="-16" x2="-63" y2="-21" stroke="#08291A" stroke-width="5.5" stroke-linecap="round"/>
+      <line x1="54" y1="-10" x2="63" y2="-15" stroke="#08291A" stroke-width="5.5" stroke-linecap="round"/>
+      <!-- Kawaii eyes & smile -->
+      <rect x="-14" y="-14" width="7" height="14" rx="3.5" fill="#08291A"/>
+      <rect x="7" y="-14" width="7" height="14" rx="3.5" fill="#08291A"/>
+      <path d="M -6 5 Q 0 12 6 5" fill="none" stroke="#08291A" stroke-width="5" stroke-linecap="round"/>
+    </g>
+      </g>
+    </svg>
