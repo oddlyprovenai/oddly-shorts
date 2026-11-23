@@ -35,8 +35,8 @@
     },
     {
       "id": "reap",
-      "title": "2-Min Idle Reaper",
-      "subtitle": "Wipes key -> 0 MB",
+      "title": "Exits after 2 idle min",
+      "subtitle": "Process ends -> 0 MB",
       "x": 0.75,
       "y": 0.72,
       "at": 14.0,

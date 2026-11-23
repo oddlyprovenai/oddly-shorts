@@ -14,12 +14,14 @@ import { Motion } from "./fx";
 
 export type ReelPlatform = "universal" | "tiktok" | "youtube-shorts" | "reels" | "instagram-reels" | "x";
 const REEL_ZONES: Record<Exclude<ReelPlatform, "instagram-reels">, { leftPct: number; widthPct: number; maxCapBottomPct: number }> = {
-  universal: { leftPct: 8, widthPct: 76, maxCapBottomPct: 75 },
+  universal: { leftPct: 6, widthPct: 88, maxCapBottomPct: 79 },   // = v1 placement (reels already published keep their look)
   tiktok: { leftPct: 7, widthPct: 76, maxCapBottomPct: 74 },
   "youtube-shorts": { leftPct: 8, widthPct: 77, maxCapBottomPct: 76 },
   reels: { leftPct: 8, widthPct: 76, maxCapBottomPct: 73 },
   x: { leftPct: 8, widthPct: 84, maxCapBottomPct: 83 },
 };
+
+const zoneOf = (pl?: ReelPlatform) => REEL_ZONES[pl === "instagram-reels" ? "reels" : (pl ?? "universal")] ?? REEL_ZONES.universal;
 
 export type ReelCaption = { words: string[]; key: number; start: number; end: number };
 export type ReelProps = {
@@ -51,15 +53,15 @@ export const ReelEdit: React.FC<ReelProps> = (p) => {
   const k = p.punch.filter((x) => t >= x).length, punch = k % 2 ? 1.12 : 1.0;
   const last = Math.max(0, ...p.punch.filter((x) => t >= x)), ease = interpolate(t - last, [0, 0.35], [k % 2 ? 1.0 : 1.12, punch], { extrapolateRight: "clamp" });
   const fz = faceAt(p.face ?? [], t, clip.start, clip.end);
-  const zcap = fz ? Math.max(clip.zoom, maxZoomFor(fz, clip.oy)) : 99;
+  const zcap = fz ? Math.max(clip.zoom, maxZoomFor(fz, clip.oy, Math.min(0.66, (zoneOf(p.platform).maxCapBottomPct - 13) / 100 - 0.008))) : 99;   // chin stays above the caption band
   const z = Math.min(clip.zoom * ease, zcap);
   const face: Rect = fz ? toScreen(fz, z, clip.ox, clip.oy) : { x: W * 0.25, y: H * 0.2, w: W * 0.5, h: H * 0.3 };
   const live = (p.overlays ?? []).filter((o) => t >= o.from && t < o.from + o.dur);
-  const zone = REEL_ZONES[p.platform === "instagram-reels" ? "reels" : (p.platform ?? "universal")] ?? REEL_ZONES.universal;
+  const zone = zoneOf(p.platform);
   const capH = H * 0.13, chestOn = live.some((o) => o.anchor === "chest");
   // captions under the chin within platform safe zone; while a chest card is up they move above the head (over the hair, never the face)
   const maxCapTop = H * (zone.maxCapBottomPct / 100) - capH;
-  const capTop = chestOn ? Math.max(H * 0.05, face.y - 30 - capH) : Math.min(Math.max(face.y + face.h + 8, H * 0.52), maxCapTop);
+  const capTop = chestOn ? Math.max(H * 0.05, face.y - 30 - capH) : Math.min(Math.max(face.y + face.h + 8, H * 0.56), maxCapTop);
   const hookOn = !!p.hook && t < p.hook.until;
   const obstacles: Rect[] = [{ x: W * (zone.leftPct / 100), y: capTop, w: W * (zone.widthPct / 100), h: capH }];
   if (hookOn) obstacles.push({ x: W * 0.06, y: H * 0.07, w: W * 0.88, h: H * 0.15 });

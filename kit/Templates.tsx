@@ -154,7 +154,7 @@ export const ReceiptCard: React.FC<ReceiptCardProps> = ({
   return (
     <LabStage accent={accent} {...common}>
       <div style={{
-        position: "absolute", top: "11%", left: "8%", width: "78%",
+        position: "absolute", top: "14%", left: "8%", width: "78%",   // below every platform's top chrome (12 %)
         background: PAPER, color: INK, borderRadius: Math.round(28 * k),
         padding: `${Math.round(36 * k)}px ${Math.round(36 * k)}px ${Math.round(32 * k)}px`,
         boxShadow: "0 28px 64px rgba(0,0,0,0.48)",
@@ -222,7 +222,7 @@ export const ReceiptCard: React.FC<ReceiptCardProps> = ({
 
         {stamp && t >= stamp.at && (
           <div style={{
-            position: "absolute", right: Math.round(26 * k), top: Math.round(26 * k),
+            position: "absolute", right: Math.round(26 * k), bottom: Math.round(70 * k),   // clear of the title
             border: `${Math.round(5 * k)}px solid ${stamp.ok ? "#1E6F3D" : RED}`,
             color: stamp.ok ? "#1E6F3D" : RED,
             background: "rgba(247,245,239,0.95)",

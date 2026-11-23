@@ -8,8 +8,6 @@ cloud, no per-video cost. Works as a Claude Code skill (`SKILL.md`) or as plain 
 Based on **[claude-animated-shorts](https://github.com/mromidev/claude-animated-shorts) by Mr omi** (MIT): its toon
 renderer and synthesized audio are the foundation. oddly-shorts adds everything below.
 
-<p align="center"><img src="docs/oddly-shorts-preview.gif" width="240" alt="oddly-shorts templates and platform safe-zone preview"></p>
-
 ## What it adds
 | | |
 |---|---|

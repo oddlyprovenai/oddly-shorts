@@ -50,7 +50,7 @@ ACCENT_BY_CHARACTER = {
 _HOME_PAT = "/" + "Users" + r"/[A-Za-z0-9_]+"
 _LINUX_PAT = "/" + "home" + r"/[A-Za-z0-9_]+"
 _LEGACY_PAT = r"\b(?:" + "For" + "ge|" + "Man" + r"do)\b|\b46/50\b|\b0\.92\b"
-_EMAIL_ALLOW = re.compile(r"oddlyprovenai@users\.noreply\.github\.com|noreply@(?:oddlyproven\.local|google\.com|anthropic\.com)", re.I)
+_EMAIL_ALLOW = re.compile(r"oddlyprovenai@users\.noreply\.github\.com", re.I)
 _TEXT_IN_PROMPT_PAT = re.compile(r"\b(?:with text saying|text overlay|burned[- ]in text|subtitles saying|words on screen)\b", re.I)
 
 

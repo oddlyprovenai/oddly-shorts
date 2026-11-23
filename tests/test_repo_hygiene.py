@@ -33,7 +33,7 @@ class RepoHygieneTests(unittest.TestCase):
     def test_examples_and_templates_are_pii_free(self):
         home_pat = re.compile("/" + "Users" + r"/[A-Za-z0-9_]+")
         legacy_pat = re.compile(r"\b(?:" + "For" + "ge|" + "Man" + r"do)\b")
-        allow_email = re.compile(r"oddlyprovenai@users\.noreply\.github\.com|noreply@(?:oddlyproven\.local|google\.com|anthropic\.com)")
+        allow_email = re.compile(r"oddlyprovenai@users\.noreply\.github\.com")
         email_pat = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 
         for folder in ("examples", "templates", ".github"):

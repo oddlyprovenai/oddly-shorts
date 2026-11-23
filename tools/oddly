@@ -67,9 +67,9 @@ case "$cmd" in
     else
       frames=$(grep -hoE "(hold|cutTo|glideTo|track|follow)\(([0-9]+)|\{ f: ([0-9]+)" src/videos/$slug/*.ts | grep -oE "[0-9]+$" | sort -n | uniq | awk '{printf "%s%d", (NR>1?",":""), $1+5}')
     fi
-      wait_resources
-      mkdir -p scripts && cp "$HERE/bridge-stills.mjs" scripts/oddly-stills.mjs  # node resolves @remotion/* from the project
-      BRIDGE_COMP="$comp" ODDLY_GUIDES=1 "$PY" "$HERE/render_guard.py" exec --min-free-gb "$MINFREE" -- node scripts/oddly-stills.mjs "out/$slug/k_" "$frames" 0.5
+    wait_resources
+    mkdir -p scripts && cp "$HERE/bridge-stills.mjs" scripts/oddly-stills.mjs  # node resolves @remotion/* from the project
+    BRIDGE_COMP="$comp" ODDLY_GUIDES=1 keep_awake "$PY" "$HERE/render_guard.py" exec --min-free-gb "$MINFREE" -- node scripts/oddly-stills.mjs "out/$slug/k_" "$frames" 0.5
     "$PY" - "out/$slug" "$frames" <<'PY'
 import sys, PIL.Image as I
 d, fr = sys.argv[1], sys.argv[2].split(",")
