@@ -1,0 +1,1 @@
+Why does a personal dashboard need a background daemon eating memory all day? In *Cage*, clicking the app wakes a local *127.0.0.1* server at roughly *23* MB, unlocks your *AES-256-GCM* vault with scrypt, and shuts itself down to *0* MB two minutes after you close the tab. Link in bio.

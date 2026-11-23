@@ -1,0 +1,58 @@
+{
+  "total": 28.0,
+  "accent": "#F0592A",
+  "platform": "x",
+  "subStyle": "pop",
+  "publicationLabel": "COMMON AI TRADING CLAIM",
+  "publishedDate": "WALK-FORWARD CHECK",
+  "headline": "Let an autonomous AI bot trade your portfolio 24/7",
+  "quotedClaim": "Backtests often hide how many failed strategy variants were discarded.",
+  "verdictAt": 5.8,
+  "verdictStamp": "OUR TEST: REAL MONEY LOCKED OFF",
+  "verdictOk": false,
+  "findings": [
+    {
+      "at": 6.6,
+      "text": "Counted all 42 strategy variants in our walk-forward test"
+    },
+    {
+      "at": 11.4,
+      "text": "Best deflated Sharpe ratio: 0.20 (no statistical edge)"
+    },
+    {
+      "at": 16.0,
+      "text": "Out-of-sample active: -0.3% vs +11.4% simple buy-and-hold"
+    }
+  ],
+  "source": "Cage trading audit (github.com/oddlyprovenai/cage \u00b7 paper-only mode)",
+  "segments": [
+    {
+      "from": 0.0
+    },
+    {
+      "from": 5.8
+    },
+    {
+      "from": 11.4
+    },
+    {
+      "from": 16.0
+    },
+    {
+      "from": 24.5
+    }
+  ],
+  "screens": [],
+  "overlays": [
+    {
+      "kind": "end",
+      "from": 24.5,
+      "title": "Cage",
+      "lines": [
+        "Paper simulator stays locked off for real money",
+        "Not financial advice \u00b7 Apache-2.0"
+      ],
+      "handle": "Link in @oddlyprovenai bio"
+    }
+  ]
+}

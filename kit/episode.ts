@@ -6,6 +6,7 @@ import type { Kit } from "./build";
 import type { Stage } from "./cast";
 import type { Overlay } from "./Overlays";
 import type { SubStyle } from "./Subtitles";
+import type { PlatformPreset } from "./safezones";
 
 export const FPS = 30;
 export type V3 = [number, number, number];
@@ -36,8 +37,8 @@ export type Episode = {
   pose?: (id: number, t: number, sets: Sets) => void;
   stage: (id: number, t: number, cam: CamInfo, sets: Sets) => Stage;
   captions: Caption[]; accent: string;
-  /** subtitle style (default "pop"); overlays: number reveals, lower thirds, end card with CTA */
-  subStyle?: SubStyle; overlays?: Overlay[];
+  /** subtitle style (default "pop"); platform safe-zone preset; overlays: number reveals, lower thirds, end card with CTA */
+  subStyle?: SubStyle; platform?: PlatformPreset; overlays?: Overlay[];
   /** screenshots for app-screen inserts: name -> path under public/ (preloaded before the first frame) */
   images?: Record<string, string>;
   /** overlays anchored to the host's head / shoulders (kit/Anchored.tsx): kinds counter-free bar, meter, lock, receipt,

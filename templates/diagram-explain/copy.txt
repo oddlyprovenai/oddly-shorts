@@ -1,0 +1,8 @@
+How Cage uses 0 MB of RAM when closed
+
+On-demand launchd wake, Python stdlib on 127.0.0.1, AES-256-GCM + scrypt vault, ~20 MB locked / ~23 MB open, and 0 MB once idle. Link in @oddlyprovenai bio.
+
+Sources: https://github.com/oddlyprovenai/cage (README.md)
+AI-assisted animation: synthesized voice, music and sound effects. Label as altered/synthetic when uploading.
+
+#macos #selfhosted #privacy #python

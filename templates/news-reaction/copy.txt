@@ -1,0 +1,8 @@
+We tested 42 trading variants in Cage—and kept real money locked off
+
+In our walk-forward test across 42 variants, the best deflated Sharpe was 0.20 and returned -0.3% out of sample vs +11.4% buy-and-hold. Not financial advice. Link in @oddlyprovenai bio.
+
+Sources: https://github.com/oddlyprovenai/cage (README.md)
+AI-assisted animation: synthesized voice, music and sound effects. Label as altered/synthetic when uploading.
+
+#algotrading #quant #backtesting #opensource

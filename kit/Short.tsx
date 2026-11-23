@@ -128,9 +128,9 @@ export const makeShort = (ep: Episode): React.FC => {
       <AbsoluteFill style={{ background: "#cfe3f2" }}>
         {layersAt(ep, f).map((l, i) => <ShotView key={i ? "over" : "base"} ep={ep} id={l.id} kit={kit} alpha={l.alpha} />)}
         {flash > 0 && <AbsoluteFill style={{ background: "#ffffff", opacity: flash }} />}
-        <Overlays items={ep.overlays ?? []} accent={ep.accent} />
+        <Overlays items={ep.overlays ?? []} accent={ep.accent} platform={ep.platform} />
         <Anchored ep={ep} />
-        <Subtitles captions={ep.captions} accent={ep.accent} style={ep.subStyle} hideFrom={end?.from} />
+        <Subtitles captions={ep.captions} accent={ep.accent} style={ep.subStyle} hideFrom={end?.from} platform={ep.platform} />
       </AbsoluteFill>
     );
   };

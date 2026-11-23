@@ -1,0 +1,1 @@
+Here is the *honest* receipt for SPIKE. On a blind holdout of 130 prompts, our router hit *116/130*, or *0.89*. Medicine round one failed our general-knowledge gate and was *rejected*. Medicine round two *passed* its gate, while finance is *not* accepted yet. Every caveat lives in STATUS dot md. Link in bio.

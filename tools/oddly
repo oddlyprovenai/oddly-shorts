@@ -3,7 +3,8 @@
 #
 #   oddly init                      copy the kit into src/videos/oddly-kit, install npm deps, Python env, voice models
 #   oddly new <slug> [format]       scaffold episodes/<slug>/ + src/videos/<slug>/ from a template
-#                                   (formats: story, demo, dialogue, problem-solution, devlog, launch, benchmark)
+#                                   (formats: story, demo, dialogue, problem-solution, devlog, launch, benchmark,
+#                                    receipt-card, split-benchmark, diagram-explain, news-reaction)
 #   oddly plan <slug>               dialogue ads: build plan.json from the line timings + beats.json
 #   oddly voice <slug>              script.txt -> voice.wav (Kokoro, local) -> words.json (faster-whisper) -> captions.json
 #   oddly keyframes <Comp> <slug>   one still at every camera key (+ safe-zone guides) -> out/<slug>/keyframes.jpg

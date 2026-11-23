@@ -4,6 +4,7 @@
 import React from "react";
 import { AbsoluteFill, getInputProps, interpolate, useCurrentFrame } from "remotion";
 import { FPS } from "./episode";
+import { PlatformPreset, SafeZoneGuides } from "./safezones";
 
 export type Overlay =
   | { kind: "number"; from: number; to: number; before: string; after: string; label: string; note?: string }
@@ -15,7 +16,7 @@ const ROUND = '"OddRound", "Arial Rounded MT Bold", "Montserrat", sans-serif';
 const STROKE = { WebkitTextStroke: "12px #0E1116", paintOrder: "stroke fill" } as const;
 const ease = (u: number) => 1 - (1 - Math.min(1, Math.max(0, u))) ** 3;
 
-export const Overlays: React.FC<{ items: Overlay[]; accent: string }> = ({ items, accent }) => {
+export const Overlays: React.FC<{ items: Overlay[]; accent: string; platform?: PlatformPreset }> = ({ items, accent, platform }) => {
   const f = useCurrentFrame(), t = f / FPS;
   const guides = !!(getInputProps() as { post?: { guides?: boolean } }).post?.guides;
   return (
@@ -71,14 +72,7 @@ export const Overlays: React.FC<{ items: Overlay[]; accent: string }> = ({ items
         }
         return null;
       })}
-      {guides && (
-        <>
-          <div style={{ position: "absolute", left: 0, right: 0, top: 0, height: "12%", background: "rgba(255,0,0,0.18)" }} />
-          <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: "20%", background: "rgba(255,0,0,0.18)" }} />
-          <div style={{ position: "absolute", right: 0, top: "40%", width: "14%", height: "40%", background: "rgba(255,128,0,0.18)" }} />
-          <div style={{ position: "absolute", left: "8%", right: "8%", top: "55%", height: "17%", border: "4px dashed rgba(0,200,255,0.8)" }} />
-        </>
-      )}
+      {guides && <SafeZoneGuides platform={platform} />}
     </AbsoluteFill>
   );
 };

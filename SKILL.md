@@ -26,6 +26,10 @@ subtitles, overlays, ad formats, one-command tooling and a QA gate. Everything r
 | `benchmark` | the question -> setup (hardware, test) -> numbers revealed one by one (facts file only) -> caveat -> CTA |
 | `dialogue` | host + talking cactus buddy banter (the viral "person talks to their AI" shape): pain -> proof on screens -> number reveals -> "Link in bio"; 30-40 s, a camera cut on every line |
 | `story` | true surprising story (hook, setting, escalation, snap, "Luckily/Unluckily", analogy, consequence, callback) + a one-line bridge to the product |
+| `receipt-card` | animated "Lab Receipt" card (`ReceiptCard`) printing verified metrics, pass/fail stamps, honest caveats, and source citations |
+| `split-benchmark` | head-to-head comparison (`SplitBenchmark`) with counter-free progress bars, hardware specs, and honest gate notes |
+| `diagram-explain` | progressive node-and-edge architecture explainer (`DiagramExplain`) with dashed SVG connectors and step highlights |
+| `news-reaction` | editorial headline/claim clipping (`NewsReaction`, zero third-party logos) paired with a measured lab reality check |
 Write **three hook variants** at the top of SCRIPT.md for A/B tests; voice the best one.
 
 ## 2. Facts first

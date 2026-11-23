@@ -1,0 +1,103 @@
+{
+  "total": 26.0,
+  "accent": "#F0592A",
+  "platform": "reels",
+  "subStyle": "pop",
+  "kicker": "ARCHITECTURE IN 25 SECONDS",
+  "title": "How Cage Uses 0 MB When Closed",
+  "nodes": [
+    {
+      "id": "app",
+      "title": "Cage.app",
+      "subtitle": "On-demand kickstart",
+      "x": 0.25,
+      "y": 0.22,
+      "at": 1.2,
+      "color": "#F0592A"
+    },
+    {
+      "id": "srv",
+      "title": "127.0.0.1 Server",
+      "subtitle": "~23 MB open \u00b7 stdlib",
+      "x": 0.75,
+      "y": 0.22,
+      "at": 4.8,
+      "color": "#3B82F6"
+    },
+    {
+      "id": "vault",
+      "title": "AES-256-GCM Vault",
+      "subtitle": "Key wrapped w/ scrypt",
+      "x": 0.25,
+      "y": 0.72,
+      "at": 9.2,
+      "color": "#88D445"
+    },
+    {
+      "id": "reap",
+      "title": "2-Min Idle Reaper",
+      "subtitle": "Wipes key -> 0 MB",
+      "x": 0.75,
+      "y": 0.72,
+      "at": 14.0,
+      "color": "#F0592A"
+    }
+  ],
+  "edges": [
+    {
+      "from": "app",
+      "to": "srv",
+      "label": "wakes port 8787",
+      "at": 5.2
+    },
+    {
+      "from": "srv",
+      "to": "vault",
+      "label": "unlocks in RAM",
+      "at": 9.8
+    },
+    {
+      "from": "srv",
+      "to": "reap",
+      "label": "tab closed",
+      "at": 14.5
+    }
+  ],
+  "takeaway": {
+    "at": 18.2,
+    "text": "No Electron daemon: 0 MB closed, ~20 MB locked, ~23 MB open."
+  },
+  "segments": [
+    {
+      "from": 0.0
+    },
+    {
+      "from": 1.2
+    },
+    {
+      "from": 4.8
+    },
+    {
+      "from": 9.2
+    },
+    {
+      "from": 14.0
+    },
+    {
+      "from": 22.8
+    }
+  ],
+  "screens": [],
+  "overlays": [
+    {
+      "kind": "end",
+      "from": 22.8,
+      "title": "Cage",
+      "lines": [
+        "Encrypted Life OS on your Mac",
+        "Apache-2.0 \u00b7 127.0.0.1 only"
+      ],
+      "handle": "Link in @oddlyprovenai bio"
+    }
+  ]
+}
